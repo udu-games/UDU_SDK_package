@@ -21,13 +21,13 @@
 
   "assets": [
     {
-      "path": "udu_sdk/Plugins",
+      "path": "Plugins",
       "packagePath": "Assets",
       "source": "Local",
       "type": "folder"
     },
     {
-      "path": "udu_sdk/UDU_SDK",
+      "path": "UDU_SDK",
       "packagePath": "Assets",
       "source": "Local",
       "type": "folder"
