@@ -18,16 +18,19 @@
     "email": "unity@example.com",
     "url": "https://www.unity3d.com"
   },
-  "unitypackage": {
-    "export": [
-      {
-        "source": "Packages/udu_sdk/Plugins",
-        "dest": "Assets"
-      },
-      {
-        "source": "Packages/udu_sdk/UDU_SDK",
-        "dest": "Assets/UDU_SDK"
-      }
-    ]
-  }
+
+  "assets": [
+    {
+      "path": "udu_sdk/Plugins",
+      "packagePath": "Assets",
+      "source": "Local",
+      "type": "folder"
+    },
+    {
+      "path": "udu_sdk/UDU_SDK",
+      "packagePath": "Assets",
+      "source": "Local",
+      "type": "folder"
+    }
+  ]
 }

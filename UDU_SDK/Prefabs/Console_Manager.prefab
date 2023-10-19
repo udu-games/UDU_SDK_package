@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ee4d273e9dcf7f2499eb966942b923fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51bf9a3b132412b4799ae6e74ad59f9b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -84,9 +84,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7433919545402248707}
-  - component: {fileID: 2332969662539686136}
-  - component: {fileID: 1502631558534940478}
-  - component: {fileID: 5799223264818345730}
+  - component: {fileID: 7494553841584124783}
+  - component: {fileID: 2435672242220022985}
+  - component: {fileID: 3857361359050135488}
   m_Layer: 0
   m_Name: Console_Manager
   m_TagString: Untagged
@@ -111,7 +111,7 @@ Transform:
   - {fileID: 666181392126409036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2332969662539686136
+--- !u!114 &7494553841584124783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,10 +120,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2000571798670871764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df2b9a180e3f6bb40af25340d2234dcf, type: 3}
+  m_Script: {fileID: 11500000, guid: 58f4091ed4a1e0544869c778694381e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1502631558534940478
+--- !u!114 &2435672242220022985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,10 +132,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2000571798670871764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40eb23bce7b421f4f88f95477d6112b0, type: 3}
+  m_Script: {fileID: 11500000, guid: fa3f85aa799c17445adc7931a368f48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5799223264818345730
+--- !u!114 &3857361359050135488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2000571798670871764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9b15d3522c69a34cbcf4d5721cf451d, type: 3}
+  m_Script: {fileID: 11500000, guid: a7d7efec90f0748439bf960b78cbf355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4029546891602989048
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 666181392126409036}
-  - component: {fileID: 3165036992462618084}
+  - component: {fileID: 6752382963192055384}
   m_Layer: 0
   m_Name: BluetoothPermissions
   m_TagString: Untagged
@@ -281,7 +281,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7433919545402248707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3165036992462618084
+--- !u!114 &6752382963192055384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -290,6 +290,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4379977892901041982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94812d92e7fc6344a518415c1bce7a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e9d64d6bae7caf48960b84ebf55db60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
