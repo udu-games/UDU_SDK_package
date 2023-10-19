@@ -21,13 +21,13 @@
 
   "assets": [
     {
-      "path": "Packages/com.unity.images-library/Plugins",
+      "path": "Packages/com.defaultcompany.udu_sdk/Plugins",
       "packagePath": "Assets",
       "source": "Local",
       "type": "folder"
     },
     {
-      "path": "Packages/com.unity.images-library/UDU_SDK",
+      "path": "Packages/com.defaultcompany.udu_sdk/UDU_SDK",
       "packagePath": "Assets",
       "source": "Local",
       "type": "folder"
