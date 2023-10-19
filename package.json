@@ -20,6 +20,10 @@
     "url": "https://www.unity3d.com"
   },
   "samples": [
-    "Samples/Plugins"
+    {
+      "displayName": "Android Manifest",
+      "description": "Plugins folder containing the Android Manifest for Bluetooth permissions",
+      "path": "Samples~/Plugins"
+    }
   ]
 }
