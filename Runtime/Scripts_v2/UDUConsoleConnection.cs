@@ -37,6 +37,10 @@ public class UDUConsoleConnection : MonoBehaviour
 
 
     #region Start & Update functions
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
     void Start()
     {
         InitialConsoleConnection();
