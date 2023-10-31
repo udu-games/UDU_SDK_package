@@ -21,9 +21,9 @@
   },
   "samples": [
     {
-      "displayName": "Android Manifest",
-      "description": "Plugins folder containing the Android Manifest for Bluetooth permissions",
-      "path": "Samples~/Plugins"
+      "displayName": "DTW",
+      "description": "Dynamic Time Warping scripts that will allow you to use gesture recognition",
+      "path": "Samples~/DTW"
     }
   ]
 }
