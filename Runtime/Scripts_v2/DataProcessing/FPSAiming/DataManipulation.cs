@@ -25,6 +25,11 @@ public class DataManipulation : MonoBehaviour
         devicePitchAdjustmentCurve = new AnimationCurve(new Keyframe(-90f, 0f), new Keyframe(pitchOffset.value, -pitchOffset.value), new Keyframe(90f, 0f));
     }
 
+    public void SetConsoleCurrentQuat(Quaternion quat)
+    {
+        _consoleCurrentQuat = quat;
+    }
+
     void Update()
     {
 

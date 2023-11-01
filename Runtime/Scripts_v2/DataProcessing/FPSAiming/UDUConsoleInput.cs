@@ -46,7 +46,7 @@ public class UDUConsoleInput : MonoBehaviour
             eulerRotation.y = 0;
             Quaternion newRotation = Quaternion.Euler(eulerRotation);
 
-            dataManipulation._consoleCurrentQuat = newRotation;
+            dataManipulation.SetConsoleCurrentQuat(newRotation);
         }
     }
 
