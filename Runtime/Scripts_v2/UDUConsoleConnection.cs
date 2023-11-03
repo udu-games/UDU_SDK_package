@@ -297,7 +297,7 @@ public class UDUConsoleConnection : MonoBehaviour
 
         UDUOutputs.SetAmplitude(100);
 
-        UDUOutputs.SetImageVibrationAndLEDs("bear.gif", "Fruit100.wav", Color.blue);
+        UDUOutputs.SetImageVibrationAndLEDs("intro.gif", "Fruit100.wav", Color.green);
     }
 
     public static string StatusMessage

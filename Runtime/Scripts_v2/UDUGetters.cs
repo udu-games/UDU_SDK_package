@@ -10,11 +10,18 @@ public class UDUGetters : UDUAbstractBytesSetters
     private static Quaternion orientation;
     private static Vector3 trackpadCoordinates;
     private static float magneticHeading;
+
+    private Vector3 previousTrackpadValue;
+    private Vector3 currentTrackpadValue;
+    private float lastCheckTime;
+    public static bool isTrackpadPressed;
+    private float[] differenceBuffer = new float[7];
     #endregion
 
     private void Start()
     {
         EventsSystemHandler.Instance.onConsoleConnect += IsConsoleConnectedFromBase;
+        InitializeTrackpad();
     }
 
     private void Update()
@@ -25,6 +32,8 @@ public class UDUGetters : UDUAbstractBytesSetters
         GetOrientationFromBase();
         GetTrackpadCoordinatesFromBase();
         GetMagneticHeadingFromBase();
+
+        TrackpadValueCheck();
     }
 
     #region Getting static console data
@@ -88,7 +97,14 @@ public class UDUGetters : UDUAbstractBytesSetters
 
     public void GetTrackpadCoordinatesFromBase()
     {
-        trackpadCoordinates = base._trackpadCoordinates;
+        if (isTrackpadPressed)
+        {
+            trackpadCoordinates = base._trackpadCoordinates;
+        }
+        else
+        {
+            trackpadCoordinates = Vector3.zero;
+        }
     }
 
     public void GetMagneticHeadingFromBase()
@@ -103,4 +119,63 @@ public class UDUGetters : UDUAbstractBytesSetters
 
     #endregion
 
+    #region Trackpad data management
+    private void InitializeTrackpad()
+    {
+        currentTrackpadValue = base._trackpadCoordinates;
+        previousTrackpadValue = currentTrackpadValue;
+        for (int i = 0; i < differenceBuffer.Length; i++)
+        {
+            differenceBuffer[i] = 0f; // Initialize the buffer with 0 values.
+        }
+    }
+
+    private void TrackpadValueCheck()
+    {
+        if (Time.time - lastCheckTime >= .025f)
+        {
+            // Shift the existing values to the right (removing the value at index 0).
+            for (int i = differenceBuffer.Length - 1; i > 0; i--)
+            {
+                differenceBuffer[i] = differenceBuffer[i - 1];
+            }
+
+            currentTrackpadValue = base._trackpadCoordinates;
+            float sumCurrent = currentTrackpadValue.x + currentTrackpadValue.y + currentTrackpadValue.z;
+            float sumPrevious = previousTrackpadValue.x + previousTrackpadValue.y + previousTrackpadValue.z;
+
+            float difference = Mathf.Abs(sumCurrent - sumPrevious);
+
+            differenceBuffer[0] = difference;
+            float sumArray = SumArray(differenceBuffer);
+
+            // Check if the current value is different from the previous value
+            if (sumArray > 0)
+            {
+                isTrackpadPressed = true;
+            }
+            else
+            {
+                isTrackpadPressed = false;
+            }
+
+            // Update the previousValue for the next frame
+            previousTrackpadValue = currentTrackpadValue;
+
+            lastCheckTime = Time.time;
+        }
+    }
+
+    private float SumArray(float[] array)
+    {
+        float sum = 0.0f;
+        for (int i = 0; i < array.Length; i++)
+        {
+            sum += array[i];
+        }
+        return sum;
+    }
+    #endregion
+
 }
+
