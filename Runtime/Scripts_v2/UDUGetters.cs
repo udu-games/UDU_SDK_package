@@ -103,22 +103,22 @@ public class UDUGetters : UDUAbstractBytesSetters
         timestamp = base._timestamp;
     }
 
-    public void GetAccelerationFromBase()
+    private void GetAccelerationFromBase()
     {
         acceleration = base._acceleration;
     }
 
-    public void GetAngularVelocityFromBase()
+    private void GetAngularVelocityFromBase()
     {
         angularVelocity = base._angularVelocity;
     }
 
-    public void GetOrientationFromBase()
+    private void GetOrientationFromBase()
     {
         orientation = base._orientation;
     }
 
-    public void GetTrackpadCoordinatesFromBase()
+    private void GetTrackpadCoordinatesFromBase()
     {
         if (isTrackpadPressed)
         {
@@ -130,12 +130,12 @@ public class UDUGetters : UDUAbstractBytesSetters
         }
     }
 
-    public void GetMagneticHeadingFromBase()
+    private void GetMagneticHeadingFromBase()
     {
         magneticHeading = base._magneticHeading;
     }
 
-    public void IsConsoleConnectedFromBase(bool isConsoleConnected)
+    private void IsConsoleConnectedFromBase(bool isConsoleConnected)
     {
         isConnected = isConsoleConnected;
     }
