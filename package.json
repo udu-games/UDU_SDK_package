@@ -24,6 +24,17 @@
       "displayName": "DTW",
       "description": "Dynamic Time Warping scripts that will allow you to use gesture recognition",
       "path": "Samples~/DTW"
+    },
+    {
+      "displayName": "FPSaimingInteraction",
+      "description": "First-person shooter aiming and interaction example",
+      "path": "Samples~/FPSaimingInteraction"
+    },
+    {
+      "displayName": "TrackpadMovement",
+      "description": "Example of player movement using a trackpad",
+      "path": "Samples~/TrackpadMovement"
     }
   ]
+
 }
