@@ -37,36 +37,59 @@ public class UDUGetters : UDUAbstractBytesSetters
     }
 
     #region Getting static console data
+    /// <summary>
+    /// Returns the current timestamp, or the current system time. Helpful for calculating, measuring specific events that occur and for debugging.
+    /// </summary>
+    /// <returns></returns>
     public static long GetTimestamp()
     {
         return timestamp;
     }
-
+    /// <summary>
+    /// Returns the UDU Console acceleration as a Vector3.
+    /// </summary>
+    /// <returns></returns>
     public static Vector3 GetAcceleration()
     {
         return acceleration;
     }
-
+    /// <summary>
+    /// Returns the UDU Console angular velocity as a Vector3.
+    /// </summary>
+    /// <returns></returns>
     public static Vector3 GetAngularVelocity()
     {
         return angularVelocity;
     }
-
+    /// <summary>
+    /// Returns the UDU Console orientation as a Quaternion.
+    /// </summary>
+    /// <returns></returns>
     public static Quaternion GetOrientation()
     {
         return orientation;
     }
-
+    /// <summary>
+    /// Returns the UDU Console trackpad coordinates as a Vector3. X being the vertical axis, Y the horizontal axis, Z the depth inside the trackpad.
+    /// Origin (0,0) is bottom left of the trackpad.
+    /// </summary>
+    /// <returns></returns>
     public static Vector3 GetTrackpadCoordinates()
     {
         return trackpadCoordinates;
     }
-
+    /// <summary>
+    /// Returns the UDU Console angle compared to magnetic north as a float.
+    /// </summary>
+    /// <returns></returns>
     public static float GetMagneticHeading()
     {
         return magneticHeading;
     }
-
+    /// <summary>
+    /// Return true if the console is connect, false otherwise.
+    /// </summary>
+    /// <returns></returns>
     public static bool IsConsoleConnected()
     {
         return isConnected;
