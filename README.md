@@ -27,8 +27,15 @@ To install the UDU SDK, follow these steps:
 5. Paste the copied clone link (`https://github.com/udu-games/UDU_SDK.git`) into the input field and press `Add`.
 6. Unity will now fetch and integrate the UDU SDK package into your project.
 
-Check out our guides below for more information on how to use the udu console.
+# Setting up bluetooth permissions
 
+1. Switch the Unity platform to Android by clicking on `File` > `Build Settings`, selecting `Android`, and clicking `Switch Platform`.
+2. Open the `Player Settings` by clicking on `Edit` > `Project Settings` > `Player`.
+3. Scroll down to the `Publishing Settings` section.
+4. Check the box that says `Custom Main Manifest`.
+5. Replace the newly created `AndroidManifest` in `Assets` > `Plugins` > `Android` by the premade one found at `Packages` > `UDU SDK` > `Plugins` > `Android`
+***Note:*** * You can customise the `AndroidManifest` according to your specific needs by editing the <uses-permission> lines. Add or remove permissions as required for your application.*
+   
 * UDU console functionality and references: [UDU console reference guide](https://github.com/udu-games/UDU_SDK/blob/development/Udu_Sdk/ReadMe/udu-sdk-reference.md#gettimestamp).
 
 * UDU console spiff files reference: [UDU console spiff files](https://github.com/udu-games/Console-Spiffs).
