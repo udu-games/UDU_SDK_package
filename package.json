@@ -1,22 +1,16 @@
 {
-  "name": "com.defaultcompany.udu_sdk",
+  "name": "com.udu_company.udu_sdk",
   "version": "0.1.1",
   "displayName": "UDU SDK",
   "description": "UDU SDK package",
-  "unity": "2019.1",
+  "unity": "2021.3.11f1",
   "unityRelease": "0b5",
   "assetPath": "Assets/Plugins",
   "documentationUrl": "https://example.com/",
-  "changelogUrl": "https://example.com/changelog.html",
-  "licensesUrl": "https://example.com/licensing.html",
-  "keywords": [
-    "keyword1",
-    "keyword2",
-    "keyword3"
-  ],
+  "licensesUrl": "https://github.com/udu-games/UDU_SDK/blob/development/LICENSE.md",
   "author": {
-    "name": "Unity",
-    "email": "unity@example.com",
+    "name": "UDU SDK",
+    "email": "SDK@udu.dk",
     "url": "https://www.unity3d.com"
   },
   "samples": [
