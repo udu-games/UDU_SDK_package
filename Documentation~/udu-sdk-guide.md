@@ -46,16 +46,9 @@ The UDU SDK provides a set of APIs and tools that enable developers to build app
 3. Locate the `Console_Manager` prefab at the following path: `Packages` > `UDU SDK` > `UDU_SDK` > `Prefabs`.
 4. Place the `Console_Manager` prefab in your starting scene to establish a connection with the UDU console.
 
-* AbstractDataStream.cs (This script is abstract. It is the bridge between bleudumanager.cs & bledatastream.cs)
-
-* BLEDataStream.cs (This script derives from AbstractDataStream. It sets & gets the streams of data from the console)
-
-* BLEUDUManager.cs (This script does the initial connection, subscribes to characteristics and sets up functionality for console outputs)
-
-* ConsoleIntegration.cs (This script is the initial connection setup)
-    (You will use this script to get console data from BLEDataStream.cs using `ConsoleIntegration.Instance.uduConsoleDatastream`)
-
-* ConsoleInteractions.cs (This script examples how to connect with the console through events. Subscribing to an event when it happens)
+* UDUConsoleIntegration.cs (This script handles the initial setup for connecting to the console).
+* UDUGetters.cs (This script enables reading data from the console, including orientation, magnetometer, trackpad information, and button states).
+* UDUOuputsBytesSetter.cs (This script facilitates actions on the console, such as triggering vibrations, changing displayed images, and adjusting LED colors).
 
 Here's an example of how you could use the UDU SDK to control a character in a Unity game:
 
