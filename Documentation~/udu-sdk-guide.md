@@ -67,11 +67,11 @@ public class CharacterMovement : MonoBehaviour
 
     private void GetConsoleData()
     {
-        if (ConsoleIntegration.Instance.isConnected == true)
+        if (UDUGetters.IsConsoleConnected() == true)
         {
-            trackpadX = ConsoleIntegration.Instance.uduConsoleDatastream.GetTrackpadCoordinates().x;
-            trackpadY = ConsoleIntegration.Instance.uduConsoleDatastream.GetTrackpadCoordinates().y;
-            trackpadZ = ConsoleIntegration.Instance.uduConsoleDatastream.GetTrackpadCoordinates().z;
+            trackpadX = UDUGetters.GetTrackpadCoordinates().x;
+            trackpadY = UDUGetters.GetTrackpadCoordinates().y;
+            trackpadZ = UDUGetters.GetTrackpadCoordinates().z;
         }
     }
 
