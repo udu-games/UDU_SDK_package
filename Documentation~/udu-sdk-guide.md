@@ -10,8 +10,8 @@ This document provides detailed information on how to get started with the UDU S
 
 The following system requirements are necessary to use the current version of the SDK:
 
-* Unity: [Unity Version], [Other Required Software]
-* Android: [Android Version], [Other Required Software]
+* Unity: [2021.3.11f1]
+* Android: [Minimum API level : Android 5.1 'Lollipop' - API level 22]
 
 Note: The SDK is currently available for Unity and Android, but will be expanded to support IOS soon and additional platforms in the future. Stay tuned for updates on our supported platforms.
 
@@ -20,10 +20,9 @@ Note: The SDK is currently available for Unity and Android, but will be expanded
 To install the UDU SDK, follow these steps:
 
 1. Download the `udu_sdk` folder.
-2. Go to and open your desired unity project.
-3. To Window > Package Manager.
-4. Click on the `+` in the top left cornor and select `add package from disk...`.
-5. Go to the `udu_sdk` folder and find the `package.json` file and open it.
+2. Go to unityHub and open your desired unity project.
+3. In your unity project, click on Assets tab /import package /custom package...
+4. Go to the `udu_sdk` folder and click on the .unitypackage file.
 
 For more detailed instructions, please refer to the [UDU Console Documentation](https://docs.google.com/document/d/1MhnQzvsfIXCH4WiEq1HZxx_gDPYDKf9k29LIC1J3ItQ/edit?usp=sharing).
 
@@ -32,37 +31,85 @@ For more detailed instructions, please refer to the [UDU Console Documentation](
 The UDU SDK provides a set of APIs and tools that enable developers to build applications with the `UDU Console`. Here are some steps to help you get started:
 
 1. Import `the UDU SDK` into your Unity project as decribed in the `Installation` section.
-2. Add the `BLEdatastream` prefab to your scene.
+2. Open the SampleScene inside the sdk folder.
+3. In this scene - the console manager prefab contains all the scripts that you will use to set up, connect and interact the console.
+
+* AbstractDataStream.cs (This script is abstract. It is the bridge between bleudumanager.cs & bledatastream.cs)
+
+* BLEDataStream.cs (This script derives from AbstractDataStream. It sets & gets the streams of data from the console)
+
+* BLEUDUManager.cs (This script does the initial connection, subscribes to characteristics and sets up functionality for console outputs)
+
+* ConsoleIntegration.cs (This script is the initial connection setup)
+    (You will use this script to get console data from BLEDataStream.cs using `ConsoleIntegration.Instance.uduConsoleDatastream`)
+
+* ConsoleInteractions.cs (This script examples how to connect with the console through events. Subscribing to an event when it happens)
 
 Here's an example of how you could use the UDU SDK to control a character in a Unity game:
 
 ```csharp
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UduConsole;
 
-public class UDUController : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
-    // Console integration
-	public AbstractDataStream uduConsoleDatastream;
+    private float trackpadX, trackpadY, trackpadZ;
 
-    void Update(){
-        if (!ConsoleIntegration.Instance.isConnected)
-        {
-            Debug.log("Console not connected")
-			return;
-        }
-        if (uduConsoleDatastream == null)
-        {
-			uduConsoleDatastream = ConsoleIntegration.Instance.uduConsoleDatastream;
-			//uduConsoleDatastream.ConsoleAwake("cube",red,none);           ##Not inplimented
-		}
-        Move();
+    private void Update()
+    {
+        GetConsoleData();
+        CharacterMove();
     }
-    void Move(){
-        Vector3 moveDirection characterTransform.forward * uduConsoleDatastream.GetTrackpadDirection().y + characterTransform.right * uduConsoleDatastream.GetTrackpadDirection().x;
-        transform.position += moveDirection * Time.deltaTime
+
+    private void GetConsoleData()
+    {
+        if (ConsoleIntegration.Instance.isConnected == true)
+        {
+            trackpadX = ConsoleIntegration.Instance.uduConsoleDatastream.GetTrackpadCoordinates().x;
+            trackpadY = ConsoleIntegration.Instance.uduConsoleDatastream.GetTrackpadCoordinates().y;
+            trackpadZ = ConsoleIntegration.Instance.uduConsoleDatastream.GetTrackpadCoordinates().z;
+        }
+    }
+
+    // move in 8 directions
+    private void CharacterMove()
+    {
+        if (trackpadX != 0 || trackpadY != 0)
+        {
+            if (trackpadX > 600f && trackpadY > 550f && trackpadY < 850f) // up
+            {
+                transform.position = transform.position + new Vector3(0f, 2f * Time.deltaTime, 0f);
+            }
+            else if (trackpadX < 600f && trackpadY > 550f && trackpadY < 850f) // down
+            {
+                transform.position = transform.position + new Vector3(0f, -2f * Time.deltaTime, 0f);
+            }
+            else if (trackpadY > 600f && trackpadX > 750f && trackpadX < 1300f) // right
+            {
+                transform.position = transform.position + new Vector3(2f * Time.deltaTime, 0f, 0f);
+            }
+            else if (trackpadY < 600f && trackpadX > 750f && trackpadX < 1300f) // left
+            {
+                transform.position = transform.position + new Vector3(-2f * Time.deltaTime, 0f, 0f);
+            }
+
+            else if (trackpadX > 600f && trackpadY > 800f && trackpadY < 1150f) // up right
+            {
+                transform.position = transform.position + new Vector3(2f * Time.deltaTime, 2f * Time.deltaTime, 0f);
+            }
+            else if (trackpadX > 600f && trackpadY < 650f && trackpadY > 300f) // up lefts
+            {
+                transform.position = transform.position + new Vector3(-2f * Time.deltaTime, 2f * Time.deltaTime, 0f);
+            }
+
+            else if (trackpadY > 600f && trackpadX > 400f && trackpadX < 750f) // down right
+            {
+                transform.position = transform.position + new Vector3(2f * Time.deltaTime, -2f * Time.deltaTime, 0f);
+            }
+            else if (trackpadY < 600f && trackpadX > 400f && trackpadX < 750f) // down left
+            {
+                transform.position = transform.position + new Vector3(-2f * Time.deltaTime, -2f * Time.deltaTime, 0f);
+            }
+        }
     }
 }
 ```
@@ -75,6 +122,6 @@ If you have any questions or issues with the SDK Name SDK, please contact us at 
 
 ## License
 
-The UDU SDK is released under the [??? License](LICENSE.md).
+The UDU SDK is released under the [MIT License](https://github.com/udu-games/UDU_SDK/blob/development/LICENSE.md).
 
 ---
