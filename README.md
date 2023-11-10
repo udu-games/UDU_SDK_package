@@ -1,0 +1,45 @@
+# UDU_SDK_package
+
+Welcome to the UDU Console Software Development Kit (SDK)!
+
+This document provides detailed information on how to get started with the UDU SDK, including system requirements, installation instructions, and usage examples.
+
+## System Requirements
+
+The following system requirements are necessary to use the current version of the SDK:
+
+* **Unity:** *Our current build -> `2021.3.11f1`*
+
+    **Note:** *The udu console has also been tested on 2020 and 2022 versions.*
+
+* **Android:** *Minimum API level ->* `Android 5.1 'Lollipop' - API level 22`
+
+    ***Note:*** *The SDK is currently available for Unity and Android, but will be expanded to support IOS soon and additional platforms in the future. Stay tuned for updates on our supported platforms.*
+
+## Installation
+
+To install the UDU SDK, follow these steps:
+
+1. Download the `UDU_SDK` project from GitHub and save it to your computer.
+2. Go to unityHub and open your desired unity project.
+3. In your unity project, click on Assets tab /import package /custom package...
+4. Navigate to the `UDU_SDK` project you just downloaded and select the Udu_Sdk_UnityPackage.unitypackage file in the root folder.
+5. The Udu sdk is now integrated into your unity project.
+
+Check out our guides below for more information on how to use the udu console.
+
+* UDU console functionality and references: [UDU console reference guide](https://github.com/udu-games/UDU_SDK/blob/development/Udu_Sdk/ReadMe/udu-sdk-reference.md#gettimestamp).
+
+* UDU console spiff files reference: [UDU console spiff files](https://github.com/udu-games/Console-Spiffs).
+
+* For more detailed instructions, please refer to the [UDU Console Documentation](https://docs.google.com/document/d/1MhnQzvsfIXCH4WiEq1HZxx_gDPYDKf9k29LIC1J3ItQ/edit?usp=sharing).
+
+## Support
+
+If you have any questions or issues with the SDK Name SDK, please contact us at [SDK@udu.dk](mailto:SDK@udu.dk).
+
+## License
+
+The UDU SDK is released under the [MIT License](https://github.com/udu-games/UDU_SDK/blob/development/LICENSE.md).
+
+---
