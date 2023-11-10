@@ -20,11 +20,12 @@ The following system requirements are necessary to use the current version of th
 
 To install the UDU SDK, follow these steps:
 
-1. Download the `UDU_SDK` project from GitHub and save it to your computer.
-2. Go to unityHub and open your desired unity project.
-3. In your unity project, click on Assets tab /import package /custom package...
-4. Navigate to the `UDU_SDK` project you just downloaded and select the Udu_Sdk_UnityPackage.unitypackage file in the root folder.
-5. The Udu sdk is now integrated into your unity project.
+1. Copy the HTTPS clone link: `https://github.com/udu-games/UDU_SDK.git`
+2. Open your desired Unity project.
+3. Open the Unity Package Manager by clicking on `Window` > `Package Manager`.
+4. Click on the `+` button in the top-left corner of the Package Manager window and select `Add package from git URL`.
+5. Paste the copied clone link (`https://github.com/udu-games/UDU_SDK.git`) into the input field and press `Add`.
+6. Unity will now fetch and integrate the UDU SDK package into your project.
 
 Check out our guides below for more information on how to use the udu console.
 
