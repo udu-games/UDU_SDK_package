@@ -134,7 +134,7 @@
      if(UDUGetters.GetAcceleration().magnitude > 3500)
      {
         Debug.Log("PLAYER HIT");
-        UDUOutputs.SetVibrationAndStart("/spiffs/Fruit150.wav", false);
+        UDUOutputs.SetVibrationAndStart("Fruit150.wav", false);
         Hit(this.transform.position);
      }
   }
