@@ -36,16 +36,15 @@ To install the UDU SDK, follow these steps:
 5. Replace the newly created `AndroidManifest` in `Assets` > `Plugins` > `Android` by the premade one found at `Packages` > `UDU SDK` > `Plugins` > `Android`
 
 ***Note:*** *You can customise the `AndroidManifest` according to your specific needs by editing the `<uses-permission>` lines. Add or remove permissions as required for your application.*
- 
-For more detailed instructions, please refer to the [UDU Console Documentation](https://docs.google.com/document/d/1MhnQzvsfIXCH4WiEq1HZxx_gDPYDKf9k29LIC1J3ItQ/edit?usp=sharing).
 
 ## Usage
 
 The UDU SDK provides a set of APIs and tools that enable developers to build applications with the `UDU Console`. Here are some steps to help you get started:
 
-1. Import `the UDU SDK` into your Unity project as decribed in the `Installation` section.
-2. Open the SampleScene inside the sdk folder.
-3. In this scene - the console manager prefab contains all the scripts that you will use to set up, connect and interact the console.
+1. Download the package using the steps outlined in the `Installation` section above.
+2. Follow the provided procedure to create and adapt the `AndroidManifest` file.
+3. Locate the `Console_Manager` prefab at the following path: `Packages` > `UDU SDK` > `UDU_SDK` > `Prefabs`.
+4. Place the `Console_Manager` prefab in your starting scene to establish a connection with the UDU console.
 
 * AbstractDataStream.cs (This script is abstract. It is the bridge between bleudumanager.cs & bledatastream.cs)
 
