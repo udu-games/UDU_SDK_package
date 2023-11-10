@@ -92,9 +92,9 @@
 
         void Update()
         {
-            if (ConsoleIntegration.Instance.isConnected == true)
+            if (UDUGetters.IsConsoleConnected() == true)
             {
-                timeStamp = ConsoleIntegration.Instance.uduConsoleDatastream.GetTimestamp();
+                timeStamp = UDUGetters.GetTimestamp();
                 Debug.Log("Timestamp: " + timeStamp);
             }
         }
@@ -131,10 +131,10 @@
 ```Csharp
   void CheckIfPlayerHitAboveThreshhold()
   {
-     if(ConsoleIntegration.Instance.uduConsoleDatastream.GetAcceleration().magnitude > 3500)
+     if(UDUGetters.GetAcceleration().magnitude > 3500)
      {
         Debug.Log("PLAYER HIT");
-        ConsoleIntegration.Instance.uduConsoleDatastream.SetVibrationAndStart("/spiffs/Fruit150.wav", false);
+        UDUOutputs.SetVibrationAndStart("/spiffs/Fruit150.wav", false);
         Hit(this.transform.position);
      }
   }
@@ -210,10 +210,10 @@ public class OrientationTest : MonoBehaviour
 
     void Update()
     {
-        deviceOrientation.x = ConsoleIntegration.Instance.uduConsoleDatastream.GetOrientation().x;
-        deviceOrientation.y = ConsoleIntegration.Instance.uduConsoleDatastream.GetOrientation().y;
-        deviceOrientation.z = ConsoleIntegration.Instance.uduConsoleDatastream.GetOrientation().z;
-        deviceOrientation.w = ConsoleIntegration.Instance.uduConsoleDatastream.GetOrientation().w;
+        deviceOrientation.x = UDUGetters.GetOrientation().x;
+        deviceOrientation.y = UDUGetters.GetOrientation().y;
+        deviceOrientation.z = UDUGetters.GetOrientation().z;
+        deviceOrientation.w = UDUGetters.GetOrientation().w;
 
         deviceOrientation = new Quaternion(0, sqrthalf, -sqrthalf, 0) * deviceOrientation;
 
@@ -251,11 +251,11 @@ public class OrientationTest : MonoBehaviour
 ```Csharp
  private void GetConsoleData()
  {
-     if (ConsoleIntegration.Instance.isConnected == true)
+     if (UDUGetters.IsConsoleConnected() == true)
      {
-         trackpadX = ConsoleIntegration.Instance.uduConsoleDatastream.GetTrackpadCoordinates().x;
-         trackpadY = ConsoleIntegration.Instance.uduConsoleDatastream.GetTrackpadCoordinates().y;
-         trackpadZ = ConsoleIntegration.Instance.uduConsoleDatastream.GetTrackpadCoordinates().z;
+         trackpadX = UDUGetters.GetTrackpadCoordinates().x;
+         trackpadY = UDUGetters.GetTrackpadCoordinates().y;
+         trackpadZ = UDUGetters.GetTrackpadCoordinates().z;
      }
  }
  
@@ -308,7 +308,7 @@ void CharacterMove()
 void Start()
 {
   // set initial rotation
-  initialRotation = ConsoleIntegration.Instance.uduConsoleDatastream.GetMagneticHeading();
+  initialRotation = UDUGetters.GetMagneticHeading();
 }
   
 void Update()
@@ -317,7 +317,7 @@ void Update()
   playerObject.transform.Translate(Vector3.forward * Time.deltaTime * playerObject.speed, Space.Self);
   
   // set/store magneticheading 
-  float zRotation = ConsoleIntegration.Instance.uduConsoleDatastream.GetMagneticHeading();
+  float zRotation = UDUGetters.GetMagneticHeading();
   zRotation -= initialRotation;
   zRotation = Mathf.Repeat(zRotation, 360); 
   
@@ -337,74 +337,7 @@ void Update()
 }
 ```
 </details>
-   
---- 
 
-  <details>
- <summary>GetGestureRecognition</summary>
-  
-### GetGestureRecognition
-   
-##### Description
-
-*We currently have {4} gestures that are recorded through edge impulse. **Better implementation coming soon!***
-   
-##### Properties
-   
-`GetGesture01() -> float` *Slam attack*
-   
-`GetGesture02() -> float` *Slash attack*
-
-`GetGesture03() -> float` *Back slash attack*
-
-`GetGesture04() -> float` *Stab attack*
-   
- `hasReturnedGesture -> bool` *Auto checks if completed a gesture*
-
-##### Example Usage
-
-```Csharp
-   
-private void Update()
-{
-    if (ConsoleIntegration.Instance.isConnected == true)
-    {
-       hasReturnedGesture = ConsoleIntegration.Instance.uduConsoleDatastream.HasReturnedGesture();
-   
-       try
-       {
-           gesture01 = ConsoleIntegration.Instance.uduConsoleDatastream.GetGesture01();
-           gesture02 = ConsoleIntegration.Instance.uduConsoleDatastream.GetGesture02();
-           gesture03 = ConsoleIntegration.Instance.uduConsoleDatastream.GetGesture03();
-           gesture04 = ConsoleIntegration.Instance.uduConsoleDatastream.GetGesture04();
-       }
-       catch (ArgumentOutOfRangeException) {Debug.LogError("Initial Gesture Error - Catch out of range");}
-   
-       if (hasReturnedGesture)
-       {
-           ReturnMove();
-       }
-    }
-}
-   
-private void ReturnMove()
-{
-        if (gesture01 > gesture02 && gesture01 > gesture03 && gesture01 > gesture04)
-            player.SetBool("slam", true);
-
-        if (gesture02 > gesture01 && gesture02 > gesture03 && gesture02 > gesture04)
-            player.SetBool("slashTLBR", true);
-
-        if (gesture03 > gesture01 && gesture03 > gesture02 && gesture03 > gesture04)
-            player.SetBool("slashTRBL", true);
-
-        if (gesture04 > gesture01 && gesture04 > gesture02 && gesture04 > gesture03)
-            player.SetBool("stab", true);
-}
-```
-   </details>
-
-   
    
 ---
 
@@ -532,7 +465,7 @@ private void OnDestroy()
 ```Csharp
 private void SetVibrationAndStart()
 {
-  ConsoleIntegration.Instance.uduConsoleDatastream.SetVibrationAndStart("/spiffs/1911_gunshot_short.wav", false);
+  UDUOutputs.SetVibrationAndStart("1911_gunshot_short.wav", false);
 }
  
 public void GunEffect()
@@ -561,7 +494,7 @@ public void GunEffect()
 ```csharp
 private void TriggerThisEvent()
 {
-  ConsoleIntegration.Instance.uduConsoleDatastream.StartVibration();
+  UDUOutputs.StartVibration();
 }
 ```
 </details>
@@ -586,7 +519,7 @@ private void TriggerThisEvent()
 ```csharp
 private void SetASpecificVibration()
 {
-  ConsoleIntegration.Instance.uduConsoleDatastream.SetVibration("/spiffs/Fruit150.wav");
+  UDUOutputs.SetVibration("Fruit150.wav");
 }
 ```
 </details>
@@ -614,7 +547,7 @@ private void SetASpecificVibration()
 ```csharp
 private void TurnOffLEDs()
 {
-  ConsoleIntegration.Instance.uduConsoleDatastream.SetLEDOff();
+  UDUOutputs.SetLEDOff();
 }
 ```
 </details>
@@ -637,7 +570,7 @@ private void TurnOffLEDs()
 ```csharp
 private void SetLEDFlashingColor()
 {
-    ConsoleIntegration.Instance.uduConsoleDatastream.SetLEDFlashingColor(Color.Red, 100, 20, 5);
+    UDUOutputs.SetLEDFlashingColor(Color.Red, 100, 20, 5);
 }
 ```
 </details>
@@ -662,7 +595,7 @@ private void SetLEDFlashingColor()
 ```csharp
 private void SetLEDConstantColor()
 {
-    ConsoleIntegration.Instance.uduConsoleDatastream.SetLEDConstantColor(Color.Red, 100);
+    UDUOutputs.SetLEDConstantColor(Color.Red, 100);
 }
 ```
 </details>
@@ -688,7 +621,7 @@ private void SetLEDConstantColor()
 ```csharp
 private void SetLED()
 {
-    ConsoleIntegration.Instance.uduConsoleDatastream.SetLED(false, 0, 255, 0, 100, 3);
+    UDUOutputs.SetLED(false, 0, 255, 0, 100, 3);
 }
 ```
  </details>
@@ -718,7 +651,7 @@ private void SetLED()
 ```csharp
 private void SetTheConsoleDisplay()
 {
-    ConsoleIntegration.Instance.uduConsoleDatastream.SetDisplayFile("/spiffs/intro.gif");
+    UDUOutputs.SetDisplayFile("intro.gif");
 }
 ```
  </details>
@@ -752,7 +685,7 @@ private void SetTheConsoleDisplay()
 ```csharp
 private void StartVibrationAndLEDs()
 {
-    StartVibrationAndLEDs("/spiffs/CH.wav", Color.blue);
+    StartVibrationAndLEDs("CH.wav", Color.blue);
 }
 ```
 </details>
@@ -781,7 +714,7 @@ private void StartVibrationAndLEDs()
 ```csharp
 private void SetImageVibrationAndLED()
 {
-    SetImageVibrationAndLED("/spiffs/slush.gif", "/spiffs/Fruit150.wav", Color.Cyan);
+    SetImageVibrationAndLED("slush.gif", "Fruit150.wav", Color.Cyan);
 }
 ```
 </details>
@@ -808,7 +741,7 @@ private void SetImageVibrationAndLED()
 ```csharp
 private void SetImageVibrationAndLED()
 {
-    SetImageAndLEDs("/spiffs/strawberry.gif", Color.yellow);
+    SetImageAndLEDs("strawberry.gif", Color.yellow);
 }
 ```
 </details>
@@ -836,7 +769,7 @@ private void SetImageVibrationAndLED()
 ```csharp
 private void SetImageVibrationAndLED()
 {
-    StartVibrationAndSetImage("/spiffs/Fruit150.wav", "/spiffs/strawberry.gif");
+    StartVibrationAndSetImage("Fruit150.wav", "strawberry.gif");
 }
 ```
 </details>
