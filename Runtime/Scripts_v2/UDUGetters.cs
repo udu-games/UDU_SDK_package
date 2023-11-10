@@ -14,7 +14,7 @@ public class UDUGetters : UDUAbstractBytesSetters
     private Vector3 previousTrackpadValue;
     private Vector3 currentTrackpadValue;
     private float lastCheckTime;
-    public static bool isTrackpadPressed;
+    private static bool isTrackpadPressed;
     private float[] differenceBuffer = new float[7];
     #endregion
 
@@ -87,12 +87,20 @@ public class UDUGetters : UDUAbstractBytesSetters
         return magneticHeading;
     }
     /// <summary>
-    /// Return true if the console is connect, false otherwise.
+    /// Return true if the console is connected, false otherwise.
     /// </summary>
     /// <returns></returns>
     public static bool IsConsoleConnected()
     {
         return isConnected;
+    }
+    /// <summary>
+    /// Return true if the trackpad is being pressed, false otherwise.
+    /// </summary>
+    /// <returns></returns>
+    public static bool IsTrackpadPressed()
+    {
+        return isTrackpadPressed;
     }
 
     #endregion
