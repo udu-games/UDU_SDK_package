@@ -27,7 +27,7 @@ To install the UDU SDK, follow these steps:
 5. Paste the copied clone link (`https://github.com/udu-games/UDU_SDK.git`) into the input field and press `Add`.
 6. Unity will now fetch and integrate the UDU SDK package into your project.
 
-# Setting up bluetooth permissions
+### Setting up bluetooth permissions
 
 1. Switch the Unity platform to Android by clicking on `File` > `Build Settings`, selecting `Android`, and clicking `Switch Platform`.
 2. Open the `Player Settings` by clicking on `Edit` > `Project Settings` > `Player`.
