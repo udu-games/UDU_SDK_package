@@ -34,7 +34,8 @@ To install the UDU SDK, follow these steps:
 3. Scroll down to the `Publishing Settings` section.
 4. Check the box that says `Custom Main Manifest`.
 5. Replace the newly created `AndroidManifest` in `Assets` > `Plugins` > `Android` by the premade one found at `Packages` > `UDU SDK` > `Plugins` > `Android`
-***Note:*** * You can customise the `AndroidManifest` according to your specific needs by editing the <uses-permission> lines. Add or remove permissions as required for your application.*
+
+***Note:*** *You can customise the `AndroidManifest` according to your specific needs by editing the <uses-permission> lines. Add or remove permissions as required for your application.*
    
 * UDU console functionality and references: [UDU console reference guide](https://github.com/udu-games/UDU_SDK/blob/development/Udu_Sdk/ReadMe/udu-sdk-reference.md#gettimestamp).
 
