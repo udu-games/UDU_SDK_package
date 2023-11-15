@@ -28,6 +28,11 @@
       "displayName": "TrackpadMovement",
       "description": "Example of player movement using a trackpad",
       "path": "Samples~/TrackpadMovement"
+    },
+    {
+      "displayName": "Driving",
+      "description": "Example of using the magnetometer to change the direction of a moving car",
+      "path": "Samples~/Driving"
     }
   ]
 
