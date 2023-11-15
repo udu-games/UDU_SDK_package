@@ -19,7 +19,7 @@ public class BallController : MonoBehaviour
         // Checking that we are connected to the UDU console
         if (!UDUGetters.IsConsoleConnected()) return;
 
-        if (UDUGetters.isTrackpadPressed)
+        if (UDUGetters.IsTrackpadPressed())
         {
             // Calculate the new position based on the desired direction.
             Vector3 movement = new Vector3(TrackpadDirection().x, 0f, -TrackpadDirection().y).normalized * forceMagnitude;
@@ -28,7 +28,7 @@ public class BallController : MonoBehaviour
             // Use MovePosition to set the new position of the Rigidbody.
             rb.MovePosition(newPosition);
         }
-        if (!UDUGetters.isTrackpadPressed)
+        if (!UDUGetters.IsTrackpadPressed())
         {
             // If isTrackpadPressed is false, cancel the velocity to stop the object.
             rb.velocity = Vector3.zero;
