@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent (typeof(Rigidbody))]
-public class BallController : MonoBehaviour
+public class CarController : MonoBehaviour
 {
     [SerializeField]private float forceMagnitude; // Adjust this value to control the force applied.
     private Vector2 trackpadDirection;     // The desired direction to move the ball.
