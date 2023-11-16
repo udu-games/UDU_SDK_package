@@ -18,7 +18,7 @@ The following system requirements are necessary to use the current version of th
 
 ## Installation
 
-To install the UDU SDK, follow these steps:
+* To install the UDU SDK, follow these steps:
 
 1. Copy the HTTPS clone link: `https://github.com/udu-games/UDU_SDK.git`
 2. Open your desired Unity project.
@@ -36,6 +36,15 @@ To install the UDU SDK, follow these steps:
 5. Replace the newly created `AndroidManifest` in `Assets` > `Plugins` > `Android` by the premade one found at `Packages` > `UDU SDK` > `Plugins` > `Android`
 
 ***Note:*** *You can customise the `AndroidManifest` according to your specific needs by editing the `<uses-permission>` lines. Add or remove permissions as required for your application.*
+
+### Known issues
+* Import SDK from package manager using .git url. Error `no git executable was found`.
+
+  **Issue:** git installation is installed on a different drive to the Unity Hub installation.
+
+  **Fix:** Install git on the same drive as the Unity Hub installation.
+
+## Guides & References
    
 * UDU console functionality and references: [UDU console reference guide](https://github.com/udu-games/UDU_SDK/blob/development/Udu_Sdk/ReadMe/udu-sdk-reference.md#gettimestamp).
 
