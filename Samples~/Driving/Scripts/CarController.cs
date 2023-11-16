@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    public float speed; // Adjust this value to set the speed of the car
+    public float speed = 10; // Adjust this value to set the speed of the car
 
     private bool isMovingForward = false; // Boolean to control whether the car should move forward
 
