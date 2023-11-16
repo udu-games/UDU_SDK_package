@@ -20,7 +20,7 @@ The following system requirements are necessary to use the current version of th
 
 * To install the UDU SDK, follow these steps:
 
-1. Copy the HTTPS clone link: `https://github.com/udu-games/UDU_SDK.git`
+1. Copy the HTTPS clone link: `https://github.com/udu-games/UDU_SDK_package.git`
 2. Open your desired Unity project.
 3. Open the Unity Package Manager by clicking on `Window` > `Package Manager`.
 4. Click on the `+` button in the top-left corner of the Package Manager window and select `Add package from git URL`.
@@ -29,12 +29,12 @@ The following system requirements are necessary to use the current version of th
 
 * Alternative way to Install the UDU SDK:
   
-1. From the repository click on Code -> Download ZIP.
-2. Download and extract the ZIP file to your pc.
+1. From the repository click on `Code` -> `Download ZIP`.
+2. Download and extract the ZIP folder.
 4. Open your Unity project and navigate the Unity Package Manager by clicking on `Window` > `Package Manager`.
 5. Click on the `+` button in the top-left corner of the Package Manager window and select `Add package from disk`.
 6. Navigate to the extracted ZIP file and add the `package.json` from the root folder.
-7. Unity will now fetch and integrate the UDU SDK package into your project.
+7. Unity will now integrate the UDU SDK package into your project.
 
 ### Setting up bluetooth permissions
 
