@@ -1,44 +1,70 @@
 using UnityEngine;
 
-[RequireComponent (typeof(Rigidbody))]
 public class CarController : MonoBehaviour
 {
-    [SerializeField]private float forceMagnitude; // Adjust this value to control the force applied.
-    private Vector2 trackpadDirection;     // The desired direction to move the ball.
-    private Vector2 trackpadMiddleCoordinates = new Vector2(950f, 600f);     // Coordinate of the trackpad middle, this can different depending on the device
+    public float speed; // Adjust this value to set the speed of the car
+
+    private bool isMovingForward = false; // Boolean to control whether the car should move forward
 
     private Rigidbody rb;
+    private float initalAngle;
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+
+        EventsSystemHandler.Instance.onTriggerPressTriggerButton += CarMove;
+        EventsSystemHandler.Instance.onTriggerReleaseTriggerButton += CarStop;
+        EventsSystemHandler.Instance.onTriggerPressSqueezeButton += GetStartingAngle;
     }
 
-    private void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        // Checking that we are connected to the UDU console
-        if (!UDUGetters.IsConsoleConnected()) return;
-
-        if (UDUGetters.IsTrackpadPressed())
+        if (isMovingForward)
         {
-            // Calculate the new position based on the desired direction.
-            Vector3 movement = new Vector3(TrackpadDirection().x, 0f, -TrackpadDirection().y).normalized * forceMagnitude;
-            Vector3 newPosition = rb.position + movement * Time.fixedDeltaTime;
-
-            // Use MovePosition to set the new position of the Rigidbody.
-            rb.MovePosition(newPosition);
+            MoveForward();
         }
-        if (!UDUGetters.IsTrackpadPressed())
+        if (!isMovingForward)
         {
-            // If isTrackpadPressed is false, cancel the velocity to stop the object.
-            rb.velocity = Vector3.zero;
+            Brake();
         }
+
+        RotateCar();
     }
 
-    private Vector2 TrackpadDirection()
+    private void RotateCar()
     {
-        // Determine direction using the middle coordinates of the trackpad and the current coordinate of the touched area
-        trackpadDirection = new Vector2(UDUGetters.GetTrackpadCoordinates().x, UDUGetters.GetTrackpadCoordinates().y) - trackpadMiddleCoordinates;
-        return trackpadDirection;
+        float angleY = Mathf.DeltaAngle(initalAngle, UDUGetters.GetMagneticHeading()) + 90;
+
+        this.gameObject.transform.rotation = Quaternion.Euler(0f, angleY, 0f);
+    }
+
+    private void CarMove()
+    {
+        isMovingForward = true;
+    }
+    private void CarStop()
+    {
+        isMovingForward = false;
+    }
+
+    void MoveForward()
+    {
+        // Apply forward force to the car
+        rb.velocity = transform.forward * speed;
+    }
+
+    void Brake()
+    {
+        rb.velocity = Vector3.zero;
+    }
+
+
+    private void GetStartingAngle()
+    {
+        initalAngle = UDUGetters.GetMagneticHeading();
     }
 }
