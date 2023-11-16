@@ -14,6 +14,7 @@ public class UDUConsoleConnection : MonoBehaviour
 
     private static Text textLog;
 
+    [SerializeField] private string[] _deviceAdressesToConnectTo;
     private static string _deviceAddress;
     public static string DeviceAddress { get => _deviceAddress; set => _deviceAddress = value; }
 
@@ -113,17 +114,24 @@ public class UDUConsoleConnection : MonoBehaviour
                             // if you have manufacturer specific data
                             if (!_rssiOnly)
                             {
-                                //StatusMessage = "Found device " + name;
                                 if (Array.FindAll(_deviceNames, s => s.Equals(name)).Length > 0)
                                 {
-                                    StatusMessage = "Found " + name;
-
-                                    BluetoothLEHardwareInterface.StopScan();
-
-                                    // found a device with the name we want
-                                    // this example does not deal with finding more than one
-                                    _deviceAddress = address;
-                                    SetState(States.Connect, 0.1f);
+                                    if (_deviceAdressesToConnectTo.Length == 0)
+                                    {
+                                        DeviceFoundStopScanIntoConnect(address);
+                                    }
+                                    else if (_deviceAdressesToConnectTo.Length > 0)
+                                    {
+                                        if (Array.FindAll(_deviceAdressesToConnectTo, s => s.Equals(address)).Length > 0)
+                                        {
+                                            DeviceFoundStopScanIntoConnect(address);
+                                        }
+                                        else
+                                        {
+                                            SetState(States.Scan, 2f);
+                                            StatusMessage = "Console with adress " + address + " is trying to connect, adress does not match.";
+                                        }
+                                    }
                                 }
                             }
                         }, (address, name, rssi, bytes) =>
@@ -131,20 +139,21 @@ public class UDUConsoleConnection : MonoBehaviour
                             // use this one if the device responses with manufacturer specific data and the rssi
                             if (Array.FindAll(_deviceNames, s => s.Equals(name)).Length > 0)
                             {
-                                StatusMessage = "Found " + name;
-
-                                if (_rssiOnly)
+                                if (Array.FindAll(_deviceAdressesToConnectTo, s => s.Equals(address)).Length > 0)
                                 {
-                                    _rssi = rssi;
+                                    if (_rssiOnly)
+                                    {
+                                        _rssi = rssi;
+                                    }
+                                    else
+                                    {
+                                        DeviceFoundStopScanIntoConnect(address);
+                                    }
                                 }
                                 else
                                 {
-                                    BluetoothLEHardwareInterface.StopScan();
-
-                                    // found a device with the name we want
-                                    // this example does not deal with finding more than one
-                                    _deviceAddress = address;
-                                    SetState(States.Connect, 0.1f);
+                                    SetState(States.Scan, 2f);
+                                    StatusMessage = "Console with adress " + address + " is trying to connect, adress does not match.";
                                 }
                             }
 
@@ -298,6 +307,8 @@ public class UDUConsoleConnection : MonoBehaviour
         UDUOutputs.SetAmplitude(100);
 
         UDUOutputs.SetImageVibrationAndLEDs("intro.gif", "Fruit100.wav", Color.green);
+
+        Debug.Log("DEVICE ADRESS: " + _deviceAddress);
     }
 
     public static string StatusMessage
@@ -321,5 +332,17 @@ public class UDUConsoleConnection : MonoBehaviour
         GameObject connectingScreen = this.transform.Find("LoadingCanvas").gameObject;
         connectingScreen.SetActive(false);
         Debug.Log("Console is connected.");
+    }
+
+    private void DeviceFoundStopScanIntoConnect(string address)
+    {
+        StatusMessage = "Found " + address;
+
+        BluetoothLEHardwareInterface.StopScan();
+
+        // found a device with the name and address we want
+        // this example does not deal with finding more than one
+        _deviceAddress = address;
+        SetState(States.Connect, 0.1f);
     }
 }
