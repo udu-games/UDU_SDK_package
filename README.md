@@ -9,7 +9,9 @@ This document provides detailed information on how to get started with the UDU S
 The following system requirements are necessary to use the current version of the SDK:
 
 * **Unity:** *Our current build -> `2021.3.11f1`*
+
     **Note:** *You need to have Android Module installed.*
+
     **Note:** *The udu console has also been tested on 2020 and 2022 versions.*
 
 * **Android:** *Minimum API level ->* `Android 5.1 'Lollipop' - API level 22`
