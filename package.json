@@ -1,6 +1,6 @@
 {
   "name": "com.udu_company.udu_sdk",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "displayName": "UDU SDK",
   "description": "UDU SDK package",
   "unity": "2021.3",
