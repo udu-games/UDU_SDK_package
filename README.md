@@ -18,7 +18,7 @@ The following system requirements are necessary to use the current version of th
 
 ## Installation
 
-* To install the UDU SDK, follow these steps:
+### Method 1: Install from GitURL using the Package Manager.
 
 1. Copy the HTTPS clone link: `https://github.com/udu-games/UDU_SDK.git`
 2. Open your desired Unity project.
@@ -27,9 +27,9 @@ The following system requirements are necessary to use the current version of th
 5. Paste the copied clone link (`https://github.com/udu-games/UDU_SDK.git`) into the input field and press `Add`.
 6. Unity will now fetch and integrate the UDU SDK package into your project.
 
-* Alternative way to Install the UDU SDK:
+### Method 2: Install from disk  using the Package Manager.
   
-1. From the repository click on Code -> Download ZIP.
+1. From the repository click on Code > Download ZIP.
 2. Download and extract the ZIP file to your pc.
 4. Open your Unity project and navigate the Unity Package Manager by clicking on `Window` > `Package Manager`.
 5. Click on the `+` button in the top-left corner of the Package Manager window and select `Add package from disk`.
