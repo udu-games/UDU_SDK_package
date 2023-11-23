@@ -57,10 +57,6 @@ The following system requirements are necessary to use the current version of th
    
 * UDU console functionality and references: [UDU console reference guide](https://github.com/udu-games/UDU_SDK/blob/development/Udu_Sdk/ReadMe/udu-sdk-reference.md#gettimestamp).
 
-* UDU console spiff files reference: [UDU console spiff files](https://github.com/udu-games/Console-Spiffs).
-
-* For more detailed instructions, please refer to the [UDU Console Documentation](https://docs.google.com/document/d/1MhnQzvsfIXCH4WiEq1HZxx_gDPYDKf9k29LIC1J3ItQ/edit?usp=sharing).
-
 ## Support
 
 If you have any questions or issues with the SDK Name SDK, please contact us at [SDK@udu.dk](mailto:SDK@udu.dk).
