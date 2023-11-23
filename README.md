@@ -10,7 +10,7 @@ The following system requirements are necessary to use the current version of th
 
 * **Unity:** *Our current build -> `2021.3.11f1`*
 
-    **Note:** *You need to have Android Module installed.*
+    **Note:** *You need to have Android environment setup installed.*
 
     **Note:** *The udu console has also been tested on 2020 and 2022 versions.*
 
@@ -28,7 +28,7 @@ The following system requirements are necessary to use the current version of th
 4. Click on the `+` button in the top-left corner of the Package Manager window and select `Add package from git URL`.
 5. Paste the copied clone link (`https://github.com/udu-games/UDU_SDK.git`) into the input field and press `Add`.
 6. Unity will now fetch and integrate the UDU SDK package into your project.
-7. 
+
 #### Known issues
 * Import SDK from package manager using .git url. Error `no git executable was found`.
 
