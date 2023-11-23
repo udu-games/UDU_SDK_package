@@ -10,7 +10,7 @@ The following system requirements are necessary to use the current version of th
 
 * **Unity:** *Our current build -> `2021.3.11f1`*
 
-    **Note:** *You need to have Android environment setup installed.*
+    **Note:** *You need to have [Android environment setup installed]([https://pages.github.com/](https://docs.unity3d.com/Manual/android-sdksetup.html)). * 
 
     **Note:** *The udu console has also been tested on 2020 and 2022 versions.*
 
