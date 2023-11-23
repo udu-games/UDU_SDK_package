@@ -570,7 +570,7 @@ private void TurnOffLEDs()
 ```csharp
 private void SetLEDFlashingColor()
 {
-    UDUOutputs.SetLEDFlashingColor(Color.Red, 100, 20, 5);
+    UDUOutputs.SetLEDFlashingColor(Color.red, 100, 20, 5);
 }
 ```
 </details>
@@ -595,7 +595,7 @@ private void SetLEDFlashingColor()
 ```csharp
 private void SetLEDConstantColor()
 {
-    UDUOutputs.SetLEDConstantColor(Color.Red, 100);
+    UDUOutputs.SetLEDConstantColor(Color.red, 100);
 }
 ```
 </details>
@@ -714,7 +714,7 @@ private void StartVibrationAndLEDs()
 ```csharp
 private void SetImageVibrationAndLED()
 {
-    SetImageVibrationAndLED("slush.gif", "Fruit150.wav", Color.Cyan);
+    SetImageVibrationAndLED("slush.gif", "Fruit150.wav", Color.cyan);
 }
 ```
 </details>
