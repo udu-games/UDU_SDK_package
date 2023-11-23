@@ -68,7 +68,7 @@ The following system requirements are necessary to use the current version of th
 
 ## Guides & References
    
-* UDU console functionality and references: [UDU console reference guide](https://github.com/udu-games/UDU_SDK/blob/development/Udu_Sdk/ReadMe/udu-sdk-reference.md#gettimestamp).
+* UDU console functionality and references: [UDU console reference guide](https://github.com/udu-games/UDU_SDK_package/blob/development/udu-sdk-reference.md).
 
 ## Support
 
