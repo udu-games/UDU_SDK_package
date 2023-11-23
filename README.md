@@ -26,6 +26,13 @@ The following system requirements are necessary to use the current version of th
 4. Click on the `+` button in the top-left corner of the Package Manager window and select `Add package from git URL`.
 5. Paste the copied clone link (`https://github.com/udu-games/UDU_SDK.git`) into the input field and press `Add`.
 6. Unity will now fetch and integrate the UDU SDK package into your project.
+7. 
+### Known issues
+* Import SDK from package manager using .git url. Error `no git executable was found`.
+
+  **Issue:** git installation is installed on a different drive to the Unity Hub installation.
+
+  **Fix:** Install git on the same drive as the Unity Hub installation.
 
 ### Method 2: Install from disk  using the Package Manager.
   
@@ -57,13 +64,6 @@ The following system requirements are necessary to use the current version of th
 3. Drag and drop the `Console_Manager` into your scene
 
 ***Note:*** *You can customise the `AndroidManifest` according to your specific needs by editing the `<uses-permission>` lines. Add or remove permissions as required for your application.*
-
-### Known issues
-* Import SDK from package manager using .git url. Error `no git executable was found`.
-
-  **Issue:** git installation is installed on a different drive to the Unity Hub installation.
-
-  **Fix:** Install git on the same drive as the Unity Hub installation.
 
 ## Guides & References
    
