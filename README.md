@@ -16,7 +16,7 @@ The following system requirements are necessary to use the current version of th
 
     ***Note:*** *The SDK is currently available for Unity and Android, but will be expanded to support IOS soon and additional platforms in the future. Stay tuned for updates on our supported platforms.*
 
-## Installation
+## 1.Installation
 
 ### Method 1: Install from GitURL using the Package Manager.
 
@@ -36,13 +36,25 @@ The following system requirements are necessary to use the current version of th
 6. Navigate to the extracted ZIP file and add the `package.json` from the root folder.
 7. Unity will now fetch and integrate the UDU SDK package into your project.
 
-### Setting up bluetooth permissions
+## 2.Setting up bluetooth permissions
 
 1. Switch the Unity platform to Android by clicking on `File` > `Build Settings`, selecting `Android`, and clicking `Switch Platform`.
 2. Open the `Player Settings` by clicking on `Edit` > `Project Settings` > `Player`.
 3. Scroll down to the `Publishing Settings` section.
 4. Check the box that says `Custom Main Manifest`.
 5. Replace the newly created `AndroidManifest` in `Assets` > `Plugins` > `Android` by the premade one found at `Packages` > `UDU SDK` > `Plugins` > `Android`
+
+## 3.Switching the Android plateform
+
+1. Open your desired Unity project
+2. Go to `File` > `Build Settings`
+3. On the platform list on the right, click `Android` then click `Switch plateform`
+
+## 4.Setting up the Console Manager prefab 
+
+1. Open the starting scene of your project
+2. Navigate to `Packages` > `UDU SDK` > `UDU SDK` > `Prefab`
+3. Drag and drop the `Console_Manager` into your scene
 
 ***Note:*** *You can customise the `AndroidManifest` according to your specific needs by editing the `<uses-permission>` lines. Add or remove permissions as required for your application.*
 
