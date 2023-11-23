@@ -68,7 +68,7 @@ The following system requirements are necessary to use the current version of th
 
 ## Guides & References
    
-* UDU console functionality and references: [UDU console reference guide](https://github.com/udu-games/UDU_SDK_package/blob/development/udu-sdk-reference.md).
+* UDU console functionality and references: [UDU console reference guide](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-reference.md).
 
 ## Support
 
