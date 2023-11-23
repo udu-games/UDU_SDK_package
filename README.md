@@ -45,19 +45,18 @@ The following system requirements are necessary to use the current version of th
 6. Navigate to the extracted ZIP file and add the `package.json` from the root folder.
 7. Unity will now fetch and integrate the UDU SDK package into your project.
 
-## 2.Setting up bluetooth permissions
-
-1. Switch the Unity platform to Android by clicking on `File` > `Build Settings`, selecting `Android`, and clicking `Switch Platform`.
-2. Open the `Player Settings` by clicking on `Edit` > `Project Settings` > `Player`.
-3. Scroll down to the `Publishing Settings` section.
-4. Check the box that says `Custom Main Manifest`.
-5. Replace the newly created `AndroidManifest` in `Assets` > `Plugins` > `Android` by the premade one found at `Packages` > `UDU SDK` > `Plugins` > `Android`
-
-## 3.Switching the Android plateform
+## 2.Switching the Android platform
 
 1. Open your desired Unity project
 2. Go to `File` > `Build Settings`
 3. On the platform list on the right, click `Android` then click `Switch plateform`
+
+## 3.Setting up bluetooth permissions
+
+1. Open the `Player Settings` by clicking on `Edit` > `Project Settings` > `Player`.
+2. Scroll down to the `Publishing Settings` section.
+3. Check the box that says `Custom Main Manifest`.
+4. Replace the newly created `AndroidManifest` in `Assets` > `Plugins` > `Android` by the premade one found at `Packages` > `UDU SDK` > `Plugins` > `Android`
 
 ## 4.Setting up the Console Manager prefab 
 
