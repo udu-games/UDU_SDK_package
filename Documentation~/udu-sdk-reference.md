@@ -685,7 +685,7 @@ private void SetTheConsoleDisplay()
 ```csharp
 private void StartVibrationAndLEDs()
 {
-    StartVibrationAndLEDs("CH.wav", Color.blue);
+    UDUOutputs.StartVibrationAndLEDs("CH.wav", Color.blue);
 }
 ```
 </details>
@@ -714,7 +714,7 @@ private void StartVibrationAndLEDs()
 ```csharp
 private void SetImageVibrationAndLED()
 {
-    SetImageVibrationAndLED("slush.gif", "Fruit150.wav", Color.cyan);
+    UDUOutputs.SetImageVibrationAndLED("slush.gif", "Fruit150.wav", Color.cyan);
 }
 ```
 </details>
@@ -741,7 +741,7 @@ private void SetImageVibrationAndLED()
 ```csharp
 private void SetImageVibrationAndLED()
 {
-    SetImageAndLEDs("strawberry.gif", Color.yellow);
+    UDUOutputs.SetImageAndLEDs("strawberry.gif", Color.yellow);
 }
 ```
 </details>
@@ -769,7 +769,7 @@ private void SetImageVibrationAndLED()
 ```csharp
 private void SetImageVibrationAndLED()
 {
-    StartVibrationAndSetImage("Fruit150.wav", "strawberry.gif");
+    UDUOutputs.StartVibrationAndSetImage("Fruit150.wav", "strawberry.gif");
 }
 ```
 </details>
