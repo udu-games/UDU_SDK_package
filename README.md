@@ -75,6 +75,14 @@ The following system requirements are necessary to use the current version of th
 You are now ready to build your app! Connect your phone to your computer, go to `File` > `Build Settings`, select your device as a Run device.
 Press `Build`, select where you want to save your `.apk` and you are good to go.
 
+***Note:*** *In case you are getting an error when building about your device using ARM64, follow the instructions found below.*
+
+### Switching to support ARM64 architecture Build
+
+1. Go to `Edit` > `Project Settings` > `Player`
+2. On the right panel go to the `Other Settings` section, scroll to `Configuration`, for `Scripting Backend` chose `IL2CPP`
+3. Just below in `Target Achitectures` tick `ARM64` and untick `ARMv7`.
+
 ## Guides & References
    
 * UDU console functionality and references: [UDU console reference guide](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-reference.md).
