@@ -4,27 +4,25 @@ public static class UDUOutputs
 {
     #region Methods : LEDs
     // Set LED to a color
-    public delegate void MyLEDConstantColorEventHandler(Color color, int brightness);
+    public delegate void MyLEDConstantColorEventHandler(Color color);
     public static event MyLEDConstantColorEventHandler SetLEDConstantColorEvent;
     /// <summary>
     /// Change LED color, adjust the brightness.
     /// </summary>
     /// <param name="color"></param>
-    /// <param name="brightness"></param>
-    public static void SetLEDConstantColor(Color color, int brightness) { SetLEDConstantColorEvent?.Invoke(color, brightness); }
+    public static void SetLEDConstantColor(Color color) { SetLEDConstantColorEvent?.Invoke(color); }
 
 
     // Set LED to flash a color On and Off every X intervals
-    public delegate void MyLEDFlashingColorEventHandler(Color color, int brightness, short flashingInterval, int durationInSeconds);
+    public delegate void MyLEDFlashingColorEventHandler(Color color, short flashingInterval, int durationInSeconds);
     public static event MyLEDFlashingColorEventHandler SetLEDFlashingColorEvent;
     /// <summary>
     /// Set the LEDs to flash with a specific color, interval and duration.
     /// </summary>
     /// <param name="color"></param>
-    /// <param name="brightness"></param>
     /// <param name="flashingInterval"></param>
     /// <param name="durationInSeconds"></param>
-    public static void SetLEDFlashingColor(Color color, int brightness, short flashingInterval, int durationInSeconds) { SetLEDFlashingColorEvent?.Invoke(color, brightness, flashingInterval, durationInSeconds); }
+    public static void SetLEDFlashingColor(Color color, short flashingInterval, int durationInSeconds) { SetLEDFlashingColorEvent?.Invoke(color, flashingInterval, durationInSeconds); }
 
 
     // Set LED Off 

@@ -12,7 +12,7 @@ public class UDUOutputsBytesSetter : MonoBehaviour
     #region Public Methods: Core
 
     #region Methods : LEDs
-    public void SetLEDConstantColor(Color color, int brightness)
+    public void SetLEDConstantColor(Color color)
     {
         byte[] command = new byte[5];
 
@@ -20,7 +20,7 @@ public class UDUOutputsBytesSetter : MonoBehaviour
         byte r = Convert.ToByte(color.r * 255);
         byte g = Convert.ToByte(color.g * 255);
         byte b = Convert.ToByte(color.b * 255);
-        byte brightnessByte = Convert.ToByte(brightness);
+        byte brightnessByte = Convert.ToByte(color.a * 255);
 
         command[0] = ledModeCmd;
         command[1] = r;
@@ -31,7 +31,7 @@ public class UDUOutputsBytesSetter : MonoBehaviour
         WriteCharacteristic(UduGattUuid.LEDServiceUUID, UduGattUuid.LEDPatternCharacteristicUUID, command);
     }
 
-    public void SetLEDFlashingColor(Color color, int brightness, short flashingInterval, int durationInSeconds) //TODO: Is this needed with SetLED
+    public void SetLEDFlashingColor(Color color, short flashingInterval, int durationInSeconds)
     {
         byte[] command = new byte[7];
 
@@ -39,7 +39,7 @@ public class UDUOutputsBytesSetter : MonoBehaviour
         byte r = Convert.ToByte(color.r * 255);
         byte g = Convert.ToByte(color.g * 255);
         byte b = Convert.ToByte(color.b * 255);
-        byte brightnessByte = Convert.ToByte(brightness);
+        byte brightnessByte = Convert.ToByte(color.a * 255);
         byte[] flashingIntervalBytes = BitConverter.GetBytes(flashingInterval);
 
         command[0] = ledModeCmd;
@@ -55,6 +55,7 @@ public class UDUOutputsBytesSetter : MonoBehaviour
         //turn off current led
         BluetoothLEHardwareInterface.WriteCharacteristic(UDUConsoleConnection.DeviceAddress, UduGattUuid.LEDServiceUUID, UduGattUuid.LEDPatternCharacteristicUUID, command, 1, true, (ledOffMessage) =>
         {
+            SetLEDOff();
             UDUConsoleConnection.StatusMessage = "LED power off";
             //set new led color
             BluetoothLEHardwareInterface.WriteCharacteristic(UDUConsoleConnection.DeviceAddress, UduGattUuid.LEDServiceUUID, UduGattUuid.LEDPatternCharacteristicUUID, command, command.Length, true, (ledMessageA) =>
