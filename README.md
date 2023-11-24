@@ -18,7 +18,17 @@ The following system requirements are necessary to use the current version of th
 
     ***Note:*** *The SDK is currently available for Unity and Android, but will be expanded to support IOS soon and additional platforms in the future. Stay tuned for updates on our supported platforms.*
 
-## 1.Installation
+## Installation
+
+### 1.Switching the Android platform
+
+1. Open your desired Unity project
+2. Go to `File` > `Build Settings`
+3. On the platform list on the right, click `Android` then click `Switch plateform`
+#### Notes
+* To do this you need to have the [Android SDK and its dependencies installed](https://docs.unity3d.com/Manual/android-sdksetup.html).
+* 
+### 2.Importing the SDK into your project using Unity Package Manager
 
 ### Method 1: Install from GitURL using the Package Manager.
 
@@ -45,12 +55,6 @@ The following system requirements are necessary to use the current version of th
 6. Navigate to the extracted ZIP file and add the `package.json` from the root folder.
 7. Unity will now fetch and integrate the UDU SDK package into your project.
 
-## 2.Switching the Android platform
-
-1. Open your desired Unity project
-2. Go to `File` > `Build Settings`
-3. On the platform list on the right, click `Android` then click `Switch plateform`
-
 ## 3.Setting up bluetooth permissions
 
 1. Open the `Player Settings` by clicking on `Edit` > `Project Settings` > `Player`.
@@ -62,9 +66,14 @@ The following system requirements are necessary to use the current version of th
 
 1. Open the starting scene of your project
 2. Navigate to `Packages` > `UDU SDK` > `UDU SDK` > `Prefab`
-3. Drag and drop the `Console_Manager` into your scene
+3. Drag and drop the `Console_Manager` into your scene Hierarchy.
 
 ***Note:*** *You can customise the `AndroidManifest` according to your specific needs by editing the `<uses-permission>` lines. Add or remove permissions as required for your application.*
+
+## 5.Building your app
+
+You are now ready to build your app! Connect your phone to your computer, go to `File` > `Build Settings`, select your device as a Run device.
+Press `Build`, select where you want to save your `.apk` and you are good to go.
 
 ## Guides & References
    
