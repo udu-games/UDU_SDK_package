@@ -27,7 +27,7 @@ The following system requirements are necessary to use the current version of th
 3. On the platform list on the right, click `Android` then click `Switch plateform`
 #### Notes
 * To do this you need to have the [Android SDK and its dependencies installed](https://docs.unity3d.com/Manual/android-sdksetup.html).
-* 
+
 ### 2.Importing the SDK into your project using Unity Package Manager
 
 ### Method 1: Install from GitURL using the Package Manager.
