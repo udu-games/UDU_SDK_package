@@ -6,6 +6,7 @@
   "unity": "2021.3",
   "unityRelease": "0b5",
   "assetPath": "Assets/Plugins",
+  "hideInEditor": false,
   "documentationUrl": "https://github.com/udu-games/UDU_SDK_package/tree/development/Documentation%7E",
   "licensesUrl": "https://github.com/udu-games/UDU_SDK/blob/development/LICENSE.md",
   "author": {
