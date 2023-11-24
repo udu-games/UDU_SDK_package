@@ -87,6 +87,8 @@ Press `Build`, select where you want to save your `.apk` and you are good to go.
    
 * UDU console functionality and references: [UDU console reference guide](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-reference.md).
 
+* UDU console good practice and limitations: [UDU console outputs and limitation guide](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-output-GoodPractice.md).
+
 ## Support
 
 If you have any questions or issues with the SDK Name SDK, please contact us at [SDK@udu.dk](mailto:SDK@udu.dk).
