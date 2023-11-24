@@ -47,7 +47,7 @@ The following system requirements are necessary to use the current version of th
   **Fix:** Install git on the same drive as the Unity Hub installation.
 
 ### Method 2: Install from disk  using the Package Manager.
-  
+
 1. From the repository click on Code > Download ZIP.
 2. Download and extract the ZIP file to your pc.
 4. Open your Unity project and navigate the Unity Package Manager by clicking on `Window` > `Package Manager`.
@@ -77,7 +77,7 @@ Press `Build`, select where you want to save your `.apk` and you are good to go.
 
 ***Note:*** *In case you are getting an error when building about your device using ARM64, follow the instructions found below.*
 
-### Switching to support ARM64 architecture Build
+### Switch to ARM64 architecture suppport build
 
 1. Go to `Edit` > `Project Settings` > `Player`
 2. On the right panel go to the `Other Settings` section, scroll to `Configuration`, for `Scripting Backend` chose `IL2CPP`
