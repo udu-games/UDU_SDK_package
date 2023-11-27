@@ -32,7 +32,7 @@ The following system requirements are necessary to use the current version of th
 
 ### Method 1: Install from GitURL using the Package Manager.
 
-1. Copy the HTTPS clone link: `https://github.com/udu-games/UDU_SDK.git`
+1. Copy the HTTPS clone link: `https://github.com/udu-games/UDU_SDK_package.git`
 2. Open your desired Unity project.
 3. Open the Unity Package Manager by clicking on `Window` > `Package Manager`.
 4. Click on the `+` button in the top-left corner of the Package Manager window and select `Add package from git URL`.
