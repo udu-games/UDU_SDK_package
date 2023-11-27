@@ -38,7 +38,7 @@
     {
       "displayName": "Outputs_Library",
       "description": "Showcasing console outputs (LEDS), (DISPLAY), (VIBRATIONS)",
-      "path": "Samples~/OutputsLibrary"
+      "path": "Samples~/Outputs_Library"
     }
   ]
 }
