@@ -34,7 +34,11 @@
       "displayName": "Driving",
       "description": "Example of using the magnetometer to change the direction of a moving car",
       "path": "Samples~/Driving"
+    },
+    {
+      "displayName": "Outputs_Library",
+      "description": "Showcasing console outputs (LEDS), (DISPLAY), (VIBRATIONS)",
+      "path": "Samples~/OutputsLibrary"
     }
   ]
-
 }
