@@ -49,13 +49,13 @@ public class UDUOutputsBytesSetter : MonoBehaviour
         command[4] = brightnessByte;
         command[5] = flashingIntervalBytes[0];
         command[6] = flashingIntervalBytes[1];
-
+        
+        SetLEDOff();
         WriteCharacteristic(UduGattUuid.LEDServiceUUID, UduGattUuid.LEDPatternCharacteristicUUID, command);
 
         //turn off current led
         BluetoothLEHardwareInterface.WriteCharacteristic(UDUConsoleConnection.DeviceAddress, UduGattUuid.LEDServiceUUID, UduGattUuid.LEDPatternCharacteristicUUID, command, 1, true, (ledOffMessage) =>
         {
-            SetLEDOff();
             UDUConsoleConnection.StatusMessage = "LED power off";
             //set new led color
             BluetoothLEHardwareInterface.WriteCharacteristic(UDUConsoleConnection.DeviceAddress, UduGattUuid.LEDServiceUUID, UduGattUuid.LEDPatternCharacteristicUUID, command, command.Length, true, (ledMessageA) =>
