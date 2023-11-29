@@ -69,6 +69,7 @@
       * Enclose `Program Files` in quotes to enable proper processing by PowerShell or other terminal if necessary, due to the presence of spaces.
    
 3. **Check if ADB recognizes your device:**
+   
    ```powershell
    ./adb devices
 
@@ -77,12 +78,14 @@
       * This command lists the connected devices. Ensure your device is listed
 
 4. **Check if ADB recognizes your device:**
+   
    ```powershell
    adb logcat -s Unity ActivityManager PackageManager dalvikvm DEBUG*
 
  * ***Notes:***
     
       * You can choose to only print logs that contains a certain string using the `select-string` argument:
+        
           ```powershell
           adb logcat -s Unity ActivityManager PackageManager dalvikvm DEBUG | select-string "trackpad"
     
