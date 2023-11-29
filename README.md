@@ -20,7 +20,7 @@ The following system requirements are necessary to use the current version of th
 
 ## Installation
 
-### 1. Switching the Android platform
+## 1. Switching the Android platform
 
 1. Open your desired Unity project
 2. Go to `File` > `Build Settings`
@@ -28,7 +28,7 @@ The following system requirements are necessary to use the current version of th
 #### Notes
 * To do this you need to have the [Android SDK and its dependencies installed](https://docs.unity3d.com/Manual/android-sdksetup.html).
 
-### 2. Importing the SDK into your project using Unity Package Manager
+## 2. Importing the SDK into your project using Unity Package Manager
 
 ### Method 1: Install from GitURL using the Package Manager.
 
