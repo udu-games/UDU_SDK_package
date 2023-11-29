@@ -3,24 +3,24 @@
 
 ---
 
-## <ins>Summary</ins>
+## Summary
 
 *Note: This documentation is intended to guide users through the process of debugging an Android phone using the command terminal on both Windows and macOS. It assumes a basic familiarity with the Android Debug Bridge (ADB) and command-line tools. Make sure to follow the steps carefully and refer to the official documentation for ADB for more in-depth information.*
 
 ---
 
 
-## <ins>Prerequisites:</ins>
+## Prerequisites:
 
 
 
-### <ins>Having Android SDK and its dependencies installed :</ins>
+### Having Android SDK and its dependencies installed :
 
   * While installing Unity or after you need to have the [Android SDK Platform Tools installed](https://docs.unity3d.com/Manual/android-sdksetup.html).
   
 
 
-### <ins>Enable USB Debugging on your Android device:</ins>
+### Enable USB Debugging on your Android device:
 
    * ***Notes:*** 
     
@@ -36,7 +36,7 @@
   
 
 
-### <ins>Connect your Android device to your computer:</ins>
+### Connect your Android device to your computer:
   * Use a USB cable to connect your Android device to your computer.
   
     * ***Notes:*** 
@@ -45,15 +45,15 @@
 
 ---
 
-## <ins>Using Command Terminal for Android Debugging:</ins>
+## Using Command Terminal for Android Debugging:
 
-### <ins>Localize your Android SDK plateform-tools:</ins>
+### Localize your Android SDK plateform-tools:
 
 1. In Unity, navigate to `Edit` > `Preferences` > `External Tools`
 2. At the bottom of the page, at the line `Android SDK Tools Installed with Unity (recommended)` press `Copy Path`
 3. You will need that Path later to localize the `platform-tools` folder which contains `adb.exe`
 
-### <ins>On Windows & Mac:</ins>
+### On Windows & Mac:
 
 1. **Open your respective terminal:**
    - Press `Win + R`, type "cmd" or "powershell," and press `Enter`.
