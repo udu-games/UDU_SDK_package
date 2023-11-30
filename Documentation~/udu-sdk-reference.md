@@ -65,9 +65,77 @@
 
 ### ***<ins>List</ins>***
 <details>
-  <summary>List of functionalities</summary>
+  <summary>List of functionalities</summary> 
  
+---
  
+<details>
+ <summary>IsConsoleConnected()</summary>
+  
+### IsConsoleConnected
+ 
+##### Description
+
+*Return true if the console is connected to your app, false otherwise*
+ 
+##### Properties
+
+`IsConsoleConnected() -> bool`
+
+##### Example Usage
+
+```Csharp
+  void UnpauseGame()
+  {
+     // Check if we are connected to the console
+     if(UDUGetters.IsConsoleConnected() != true)
+     {
+         // If the console is not connected and the game is not paused, we pause it
+         if(isPause == false)
+         {
+             isPaused = true
+         }
+     }
+  }
+```
+   </details>
+
+   
+---
+
+
+ 
+<details>
+ <summary>IsTrackpadPressed()</summary>
+  
+### IsTrackpadPressed
+ 
+##### Description
+
+*Return true if the trackpad detect a touch, false otherwise*
+ 
+##### Properties
+
+`IsTrackpadPressed() -> bool`
+
+##### Example Usage
+
+```Csharp
+  void MovingCharacterWhenTrackpadIsPressed()
+  {
+      if (UDUGetters.IsTrackpadPressed() == true)
+     {
+          CharacterMove(UDUGetters.GetTrackpadCoordinates());
+     }
+     else
+     {
+         CharacterStop();
+     }
+  }
+```
+   </details>
+
+   
 ---
  
   
