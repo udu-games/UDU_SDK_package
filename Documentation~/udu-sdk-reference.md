@@ -92,6 +92,7 @@
 
         void Update()
         {
+            // If the console is connected
             if (UDUGetters.IsConsoleConnected() == true)
             {
                 timeStamp = UDUGetters.GetTimestamp();
@@ -129,13 +130,14 @@
 ##### Example Usage
 
 ```Csharp
-  void CheckIfPlayerHitAboveThreshhold()
+  void HitPlayerAboveAccelerationThreshold()
   {
+     // Compare the acceleration value to a threshold
      if(UDUGetters.GetAcceleration().magnitude > 3500)
      {
         Debug.Log("PLAYER HIT");
-        UDUOutputs.SetVibrationAndStart("Fruit150.wav", false);
-        Hit(this.transform.position);
+        // Play a vibration
+        UDUOutputs.SetVibrationAndStart("Fruit150.wav");
      }
   }
 ```
@@ -265,7 +267,7 @@ void CharacterMove()
   // check that trackpad values are not '0'
   if (trackpadX != 0 || trackpadY != 0)
    {
-       // calculate specific positions for trackpad touches
+       // divide the trackpad into quadrant that will be use to move in four directions
        if (trackpadX > 600f && trackpadY > 550f && trackpadY < 850f) // up
        {
            transform.position = transform.position + new Vector3(0f, 2f * Time.deltaTime, 0f);
@@ -318,7 +320,11 @@ void Update()
   
   // set/store magneticheading 
   float zRotation = UDUGetters.GetMagneticHeading();
+
+  // Offset by the inital rotation
   zRotation -= initialRotation;
+
+  // Ensuring that zRotation is between 0 and 360
   zRotation = Mathf.Repeat(zRotation, 360); 
   
   // lock rotation
@@ -459,19 +465,14 @@ private void OnDestroy()
  
 ### Properties
 
-`SetVibrationAndStart(string vibrationName, bool looping) -> string, bool`
+`SetVibrationAndStart(string vibrationName) -> string`
 
 #### Example Usage
 ```Csharp
-private void SetVibrationAndStart()
-{
-  UDUOutputs.SetVibrationAndStart("1911_gunshot_short.wav", false);
-}
- 
 public void GunEffect()
 {
   // When gun fires - do effects
-  SetVibrationAndStart();
+  UDUOutputs.SetVibrationAndStart("1911_gunshot_short.wav");
 }
 ```
 </details>
@@ -564,13 +565,13 @@ private void TurnOffLEDs()
 *This function is called when you want to set the leds to flash a specific color. This function parameters are (Color color, int brightness, short flashingInterval, int durationInSeconds).*
     
 #### Properties
-`SetLEDFlashingColor(Color color, int brightness, short flashingInterval, int durationInSeconds) -> Color, int, short, int`
+`SetLEDFlashingColor(Color color, short flashingInterval, int durationInSeconds) -> Color, int, short, int`
 
 #### Example Usage
 ```csharp
 private void SetLEDFlashingColor()
 {
-    UDUOutputs.SetLEDFlashingColor(Color.red, 100, 20, 5);
+    UDUOutputs.SetLEDFlashingColor(Color.red, 20, 5);
 }
 ```
 </details>
@@ -589,39 +590,13 @@ private void SetLEDFlashingColor()
  
  #### Properties
  
-`SetLEDConstantColor(Color color, int brightness) -> Color, int`
+`SetLEDConstantColor(Color color) -> Color, int`
 
 #### Example Usage
 ```csharp
 private void SetLEDConstantColor()
 {
-    UDUOutputs.SetLEDConstantColor(Color.red, 100);
-}
-```
-</details>
- 
- 
- 
- 
-<details>
-<summary>SetLED</summary>  
- 
-### SetLED
- 
-#### Description
-
-*This function is called when you want to set the LEDs to specific color, set flashing on or off, set brightness and also set the duration.*
-
-#### Properties
- 
-`SetLED(bool isFlashing, int r, int g, int b, int brightness, int durationInSeconds) -> bool, int, int, int, int, int`
-
-#### Example Usage
-
-```csharp
-private void SetLED()
-{
-    UDUOutputs.SetLED(false, 0, 255, 0, 100, 3);
+    UDUOutputs.SetLEDConstantColor(Color.red);
 }
 ```
  </details>
