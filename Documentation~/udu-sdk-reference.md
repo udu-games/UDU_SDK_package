@@ -25,7 +25,7 @@
     
         *  There must be only one application open at a time on your mobile device.
         
-        *  When there is more than one UDU console turned on and idle at a time, the application may connect to a different console.
+        *  When there is more than one UDU console turned on and idle at a time, the application may connect to a different console. [Unless you have setup the Console_Manager accordingly](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-Connecting-To-Specific-Controller.md)
 
 
 * <ins>***Start up connection sequence***</ins>
@@ -33,12 +33,12 @@
   
   2. Open your desired app.
   
-  3. The Console will viberate, the display will show a specific image (and) the LEDs will light up when connected to your desired app.
+  3. The Console will vibrate, the display will show a specific image and the LEDs will light up when connected to your app.
   
 
 
 * <ins>***Disconnection***</ins>
-  * Disconnection happens when you either close the application on the device or turn off the console by the power button.
+  * Disconnection happens when you either close the application on the device or turn off the console using the power button.
   
     * ***Notes:*** 
     
@@ -56,10 +56,10 @@
 ---
 
 
-## <ins>Data Getters ( `Timestamp`, `Acceleration`, `Angular Velocity`, `Orientation`, `Trackpad Coordinates`, `Magnectic Heading`, `Gesture recognition` & `Buttons` )</ins>
+## <ins>Data Getters (`IsConsoleConnected`, `IsTrackpadPressed`, `Timestamp`, `Acceleration`, `Angular Velocity`, `Orientation`, `Trackpad Coordinates`, `Magnectic Heading`, `Gesture recognition` & `Buttons` )</ins>
 
 
-* ***Functionality**: How to get `Timestamp`, `Acceleration`, `Angular Velocity`, `Orientation`, `Trackpad Coordinates`, `Magnectic Heading`, `Gesture recognition` & `Buttons`*
+* ***Functionality**: How to get `IsConsoleConnected`, `IsTrackpadPressed`, `Timestamp`, `Acceleration`, `Angular Velocity`, `Orientation`, `Trackpad Coordinates`, `Magnectic Heading`, `Gesture recognition` & `Buttons`*
 
 
 
