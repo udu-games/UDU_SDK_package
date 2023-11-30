@@ -88,6 +88,10 @@ Press `Build`, select where you want to save your `.apk` and you are good to go.
 * UDU console functionality and references: [UDU console reference guide](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-reference.md).
 
 * UDU console good practice and limitations: [UDU console outputs and limitation guide](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-output-GoodPractice.md).
+  
+* [Debugging your Android app using adb](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-debug-adb.md)
+
+* [Connecting to your specific UDU controller](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-Connecting-To-Specific-Controller.md)
 
 ## Support
 
