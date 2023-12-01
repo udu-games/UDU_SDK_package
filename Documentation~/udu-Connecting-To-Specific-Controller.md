@@ -2,7 +2,7 @@
 
 ## Summary
 
-*Note: This documentation is intended to guide users through the process of connecting to one or severals specific UDU controllers using their MAC adress.*
+*Note: This documentation is intended to guide users through the process of connecting to one or severals specific UDU controllers using their MAC adress. Your application can connect to a **single** controller at a time.*
 
 
 ## Prerequisites:
