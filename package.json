@@ -39,6 +39,11 @@
       "displayName": "Outputs_Library",
       "description": "Showcasing console outputs (LEDS), (DISPLAY), (VIBRATIONS)",
       "path": "Samples~/Outputs_Library"
+    },
+    {
+      "displayName": "TrackpadRadar",
+      "description": "Example of how the trackpad touch positioning works.",
+      "path": "Samples~/TrackpadRadar"
     }
   ]
 }
