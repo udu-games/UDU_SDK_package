@@ -304,7 +304,7 @@ public class OrientationTest : MonoBehaviour
  
 ##### Description
 
- *Returns the trackpad coordinates from the console. When touching the trackpad it returns values (x,y,z) otherwise it returns '0'.*
+ *Returns the trackpad coordinates from the console. When touching the trackpad it returns values (x,y,z) otherwise it returns '0'. The values that are returned for (X == up & down, Y == right & left) are (-1.0f, 1.0f), while the middle of the trackpad is (0.0f, 0.0f). (Z == depth), still returns raw trackpad data.*
  
 ##### Properties
  
@@ -316,43 +316,40 @@ public class OrientationTest : MonoBehaviour
  
 `GetTrackpadCoordinates().z -> float`
 
+
+
 ##### Example Usage
 
 ```Csharp
- private void GetConsoleData()
- {
-     if (UDUGetters.IsConsoleConnected() == true)
-     {
-         trackpadX = UDUGetters.GetTrackpadCoordinates().x;
-         trackpadY = UDUGetters.GetTrackpadCoordinates().y;
-         trackpadZ = UDUGetters.GetTrackpadCoordinates().z;
-     }
- }
+
+private Vector3 trackpadInput; // get UDU.TrackpadCoordinates
+
+ private void Update()
+{
+    if (!UDUGetters.IsConsoleConnected()) return;
+
+    trackpadInput = UDUGetters.GetTrackpadCoordinates();
+
+    PlayerTrackpadMovement();
+}
  
 // updating characters movement
-void CharacterMove()
+private void PlayerTrackpadMovement()
 {
-  // check that trackpad values are not '0'
-  if (trackpadX != 0 || trackpadY != 0)
+   if (UDUGetters.IsTrackpadPressed())
    {
-       // divide the trackpad into quadrant that will be use to move in four directions
-       if (trackpadX > 600f && trackpadY > 550f && trackpadY < 850f) // up
-       {
-           transform.position = transform.position + new Vector3(0f, 2f * Time.deltaTime, 0f);
-       }
-       else if (trackpadX < 600f && trackpadY > 550f && trackpadY < 850f) // down
-       {
-           transform.position = transform.position + new Vector3(0f, -2f * Time.deltaTime, 0f);
-       }
-       else if (trackpadY > 600f && trackpadX > 750f && trackpadX < 1300f) // right
-       {
-           transform.position = transform.position + new Vector3(2f * Time.deltaTime, 0f, 0f);
-       }
-       else if (trackpadY < 600f && trackpadX > 750f && trackpadX < 1300f) // left
-       {
-           transform.position = transform.position + new Vector3(-2f * Time.deltaTime, 0f, 0f);
-       }
-   } 
+       // Calculate the new position based on the desired direction.
+         Vector3 movement = new Vector3(trackpadInput.y, 0f, -trackpadInput.x) * 10.0f;
+         Vector3 newPosition = rb.position + movement * Time.fixedDeltaTime;
+
+        // Use MovePosition to set the new position of the Rigidbody.
+        rb.MovePosition(newPosition);
+   }
+   if (!UDUGetters.IsTrackpadPressed())
+    {
+       // If isTrackpadPressed is false, cancel the velocity to stop the object.
+        rb.velocity = Vector3.zero;
+    }
 }
 ```
 </details>
