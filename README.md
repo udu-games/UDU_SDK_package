@@ -2,7 +2,7 @@
 
 Welcome to the UDU Console Software Development Kit (SDK)!
 
-This document provides detailed information on how to get started with the UDU SDK, including system requirements, installation instructions, and usage examples.
+This document provides detailed informations on how to get started with the UDU SDK, including system requirements, installation instructions, and usage examples.
 
 ## System Requirements
 
@@ -20,7 +20,7 @@ The following system requirements are necessary to use the current version of th
 
 ## Installation
 
-## 1. Switching the Android platform
+## 1. Switching to Android platform
 
 1. Open your desired Unity project
 2. Go to `File` > `Build Settings`
@@ -46,7 +46,7 @@ The following system requirements are necessary to use the current version of th
 
   **Fix:** Install git on the same drive as the Unity Hub installation.
 
-### Method 2: Install from disk  using the Package Manager.
+### Method 2: Install from disk using Unity Package Manager.
 
 1. From the repository click on Code > Download ZIP.
 2. Download and extract the ZIP file to your pc.
@@ -66,7 +66,7 @@ The following system requirements are necessary to use the current version of th
 
 1. Open the starting scene of your project
 2. Navigate to `Packages` > `UDU SDK` > `UDU SDK` > `Prefab`
-3. Drag and drop the `Console_Manager` into your scene Hierarchy.
+3. Drag and drop the `Console_Manager` prefab into your scene Hierarchy.
 
 ***Note:*** *You can customise the `AndroidManifest` according to your specific needs by editing the `<uses-permission>` lines. Add or remove permissions as required for your application.*
 
