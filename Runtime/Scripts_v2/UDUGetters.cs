@@ -6,18 +6,17 @@ public class UDUGetters : UDUAbstractBytesSetters
     private static long timestamp;
     private static bool isConnected;
     private static Vector3 acceleration;
+    private static Vector3 linearAcceleration;
     private static Vector3 angularVelocity;
     private static Quaternion orientation;
+    private static Vector3 trackpadCoordinates;
     private static float magneticHeading;
-    private static Vector3 normalizedTrackpadCoordinates;
 
-    private Vector3 trackpadCoordinates;
     private Vector3 previousTrackpadValue;
     private Vector3 currentTrackpadValue;
     private float lastCheckTime;
     private static bool isTrackpadPressed;
     private float[] differenceBuffer = new float[7];
-    private float trackpadMinX = 500f, trackpadMaxX = 1350f, trackpadMinY = 375f, trackpadMaxY = 1012f; // averaging trackpad values(X,Y) over multiple console
     #endregion
 
     private void Start()
@@ -29,6 +28,7 @@ public class UDUGetters : UDUAbstractBytesSetters
     private void Update()
     {
         GetAccelerationFromBase();
+        GetLinearAccelerationFromBase();
         GetTimestampFromBase();
         GetAngularVelocityFromBase();
         GetOrientationFromBase();
@@ -36,7 +36,6 @@ public class UDUGetters : UDUAbstractBytesSetters
         GetMagneticHeadingFromBase();
 
         TrackpadValueCheck();
-        TrackpadDirection();
     }
 
     #region Getting static console data
@@ -56,6 +55,16 @@ public class UDUGetters : UDUAbstractBytesSetters
     {
         return acceleration;
     }
+
+    /// <summary>
+    /// Returns the UDU Console linear acceleration as a Vector3.
+    /// </summary>
+    /// <returns></returns>
+    public static Vector3 GetLinearAcceleration()
+    {
+        return linearAcceleration;
+    }
+
     /// <summary>
     /// Returns the UDU Console angular velocity as a Vector3.
     /// </summary>
@@ -74,12 +83,12 @@ public class UDUGetters : UDUAbstractBytesSetters
     }
     /// <summary>
     /// Returns the UDU Console trackpad coordinates as a Vector3. X being the vertical axis, Y the horizontal axis, Z the depth inside the trackpad.
-    /// Improved trackpad coordinates are now normalized & rounded. They are mapped to be (X,Y (-1.0f, 1.0f)). Z is still retrieving raw trackpada data.
+    /// Origin (0,0) is bottom left of the trackpad.
     /// </summary>
     /// <returns></returns>
     public static Vector3 GetTrackpadCoordinates()
     {
-        return normalizedTrackpadCoordinates;
+        return trackpadCoordinates;
     }
     /// <summary>
     /// Returns the UDU Console angle compared to magnetic north as a float.
@@ -119,6 +128,11 @@ public class UDUGetters : UDUAbstractBytesSetters
         acceleration = base._acceleration;
     }
 
+    private void GetLinearAccelerationFromBase()
+    {
+        linearAcceleration = base._linearAcceleration;
+    }
+
     private void GetAngularVelocityFromBase()
     {
         angularVelocity = base._angularVelocity;
@@ -154,11 +168,6 @@ public class UDUGetters : UDUAbstractBytesSetters
     #endregion
 
     #region Trackpad data management
-    private Vector3 GetRawTrackpadCoordinates()
-    {
-        return trackpadCoordinates;
-    }
-
     private void InitializeTrackpad()
     {
         currentTrackpadValue = base._trackpadCoordinates;
@@ -214,65 +223,7 @@ public class UDUGetters : UDUAbstractBytesSetters
         }
         return sum;
     }
-
-    #region Trackpad averaging, normalizing & rounding
-    private Vector3 TrackpadDirection()
-    {
-        // normalizing values based on an average of multiple consoles
-        float normalizedTrackpadValuesX = NormalizeValuesWithMiddlePoint(GetRawTrackpadCoordinates().x, trackpadMinX, trackpadMaxX);
-        float normalizedTrackpadValuesY = NormalizeValuesWithMiddlePoint(GetRawTrackpadCoordinates().y, trackpadMinY, trackpadMaxY);
-
-        // round the normalized values
-        float roundedNormalizedTrackpadValuesX = RoundToDecimalPlaces(normalizedTrackpadValuesX, 3);
-        float roundedNormalizedTrackpadValuesY = RoundToDecimalPlaces(normalizedTrackpadValuesY, 3);
-
-        // re map to correctly represent the users touch ( x == up / down ) ( y == right / left )
-        normalizedTrackpadCoordinates = new Vector3(roundedNormalizedTrackpadValuesY, roundedNormalizedTrackpadValuesX, GetRawTrackpadCoordinates().z);
-
-        return normalizedTrackpadCoordinates;
-    }
-
-    private float NormalizeValuesWithMiddlePoint(float rawValue, float minValue, float maxValue)
-    {
-        if (rawValue == 0f)
-        {
-            return 0.0f;
-        }
-        else if (rawValue < minValue)
-        {
-            return -1f;
-        }
-        else if (rawValue > maxValue)
-        {
-            return 1f;
-        }
-        else
-        {
-            float middleValue = (minValue + maxValue) / 2.0f;
-
-            if (Mathf.Approximately(minValue, middleValue) || Mathf.Approximately(maxValue, middleValue))
-            {
-                // Avoid division by zero
-                return 0.0f;
-            }
-
-            if (rawValue <= middleValue)
-            {
-                return (rawValue - middleValue) / (middleValue - minValue);
-            }
-            else
-            {
-                return (rawValue - middleValue) / (maxValue - middleValue);
-            }
-        }
-    }
-
-    private float RoundToDecimalPlaces(float value, int decimalPlaces)
-    {
-        float multiplier = Mathf.Pow(10f, decimalPlaces);
-        return Mathf.Round(value * multiplier) / multiplier;
-    }
     #endregion
 
-    #endregion
 }
+
