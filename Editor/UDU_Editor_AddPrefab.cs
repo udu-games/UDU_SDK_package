@@ -18,7 +18,7 @@ namespace UDU
                 return; // Don't instantiate a new one
             }
 
-            string prefabPath = "Packages/com.udu_company.udu_sdk/UDU_SDK/Prefabs/Console_Manager.prefab";
+            string prefabPath = "Packages/com.udu_company.udu_sdk/UDU_SDK/Prefabs/Controller_Manager.prefab";
             GameObject prefab = (GameObject)AssetDatabase.LoadAssetAtPath(prefabPath, typeof(GameObject));
 
             if (prefab != null)
