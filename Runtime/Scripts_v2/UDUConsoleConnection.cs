@@ -12,7 +12,7 @@ public class UDUConsoleConnection : MonoBehaviour
 
     private float _timeout = 0f;
 
-    private static Text textLog;
+    private static string textLog;
 
     [SerializeField] private string[] _deviceAdressesToConnectTo;
     private static string _deviceAddress;
@@ -56,7 +56,7 @@ public class UDUConsoleConnection : MonoBehaviour
     {
         if (textLog != null)
         {
-            textLog.text = string.Empty;
+            textLog = string.Empty;
         }
         _connected = false;
         _timeout = 0f;
@@ -317,7 +317,7 @@ public class UDUConsoleConnection : MonoBehaviour
         {
             Debug.Log(value);
             if (textLog == null) return;
-            textLog.text += "\n" + value;
+            textLog += "\n" + value;
         }
     }
 
