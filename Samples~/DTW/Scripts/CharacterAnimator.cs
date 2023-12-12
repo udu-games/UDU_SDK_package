@@ -1,72 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CharacterAnimator : MonoBehaviour
 {
     private Animator _animator;
 
-    [SerializeField]
-    private DTWUsageExampleClass dtwUsageExampleClass; // reference to the DTW4 component
-
     private void Start()
     {
         _animator = GetComponent<Animator>();
 
-        // Get a reference to the DTW4 component on the same GameObject
-        dtwUsageExampleClass = GetComponent<DTWUsageExampleClass>();
-
-        // Check if the DTW4 component exists
-        if (dtwUsageExampleClass != null)
-        {
-            dtwUsageExampleClass.OnGestureRecognized += HandleGestureRecognized;
-        }
-        else
-        {
-            Debug.LogWarning("DTW4 component not found on this GameObject.");
-        }
+        EventsSystemHandler.Instance.onGestureRecognized += HandleGestureRecognized;
     }
 
     private void OnDestroy()
     {
-        if (dtwUsageExampleClass != null)
-        {
-            // Unsubscribe from the gesture recognized event
-            dtwUsageExampleClass.OnGestureRecognized -= HandleGestureRecognized;
-        }
+        EventsSystemHandler.Instance.onGestureRecognized -= HandleGestureRecognized;
     }
 
     private void HandleGestureRecognized(string gestureName)
     {
         Debug.Log("GESTURE NAME: " + gestureName);
-        ResetAllTriggers();
+        ResetAllAnimationTriggers();
 
         // Trigger an animation based on the recognized gesture
         switch (gestureName)
         {
-            //case "BACK_SLASH_GESTURE":
-            case "FH_TOPSPIN":
+            case "BACK_SLASH":
 
                 _animator.SetTrigger("backSlash");
                 break;
 
-            //case "STAB_GESTURE":
-            case "FH_FLAT":
+            case "STAB":
                 _animator.SetTrigger("stab");
                 break;
 
-            //case "FORWARD_SLASH_GESTURE":
-            case "LOB":
+            case "FORWARD_SLASH":
                 _animator.SetTrigger("forwardSlash");
                 break;
 
-            //case "DUNK_GESTURE":
-            case "BH_TOPSPIN":
+            case "DUNK":
                 _animator.SetTrigger("dunk");
                 break;
 
-            //case "UPPERCUT_GESTURE":
-            case "BH_BACKSPIN":
+            case "UPPERCUT":
                 _animator.SetTrigger("uppercut");
                 break;
 
@@ -78,7 +56,7 @@ public class CharacterAnimator : MonoBehaviour
         }
     }
 
-    public void ResetAllTriggers()
+    public void ResetAllAnimationTriggers()
     {
         // Reset all triggers
         foreach (AnimatorControllerParameter parameter in _animator.parameters)

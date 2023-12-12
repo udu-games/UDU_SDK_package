@@ -4,22 +4,12 @@ using UnityEngine;
 
 public class DTWTrainingExample : MonoBehaviour
 {
-    [SerializeField]
-    public bool considerAcceleration = true;
-    [SerializeField]
-    public bool considerAngularVelocity = true;
-    [SerializeField]
-    public bool considerYaw = true;
-    [SerializeField]
-    public bool considerPitch = true;
-    [SerializeField]
-    public bool considerRoll = true;
-    [SerializeField]
-    private string LogPrefix = "DTW Training Results";
-
-    private Quaternion consoleOrientation;
-    private Vector3 consoleAcceleration;
-    private Vector3 consoleAngularVelocity;
+    [HideInInspector] public bool considerAcceleration = true;
+    [HideInInspector] public bool considerAngularVelocity = true;
+    [HideInInspector] public bool considerYaw = false;
+    [HideInInspector] public bool considerPitch = false;
+    [HideInInspector] public bool considerRoll = false;
+    [HideInInspector] public string LogPrefix = "DTW Training Results";
 
     // Data save here while the trigger button is pressed
     private List<Vector3> currentAcceleration = new List<Vector3>();
@@ -64,16 +54,13 @@ public class DTWTrainingExample : MonoBehaviour
         }
     }
 
-        private void ListenToGestureData()
-        {
-            consoleOrientation = UDUGetters.GetOrientation();
-            consoleAcceleration = UDUGetters.GetAcceleration().normalized;
-            consoleAngularVelocity = UDUGetters.GetAngularVelocity();
-            currentAcceleration.Add(consoleAcceleration);
-            currentOrientation.Add(consoleOrientation);
-            currentAngularVelocity.Add(consoleAngularVelocity);
-            hasProcessedTrainingData = false;
-        }
+    private void ListenToGestureData()
+    {
+        currentAcceleration.Add(UDUGetters.GetAcceleration().normalized);
+        currentOrientation.Add(UDUGetters.GetOrientation());
+        currentAngularVelocity.Add(UDUGetters.GetAngularVelocity());
+        hasProcessedTrainingData = false;
+    }
 
     // Triggered by the reset button on screen
     public void ClearAll()
@@ -81,16 +68,10 @@ public class DTWTrainingExample : MonoBehaviour
         dtwTraining.ClearAll();
     }
 
-        private void SubscribeToBLEEvents()
+    private void SubscribeToBLEEvents()
     {
         EventsSystemHandler.Instance.onTriggerPressTriggerButton += OnConsoleTriggerButtonPress;
         EventsSystemHandler.Instance.onTriggerReleaseTriggerButton += OnConsoleTriggerButtonRelease;
-    }
-
-    private void UnsubscribeFromBLEEvents()
-    {
-        EventsSystemHandler.Instance.onTriggerPressTriggerButton -= OnConsoleTriggerButtonPress;
-        EventsSystemHandler.Instance.onTriggerReleaseTriggerButton -= OnConsoleTriggerButtonRelease;
     }
 
     private void OnConsoleTriggerButtonPress()
