@@ -1,3 +1,16 @@
 {
-	"name": "defaultcompany.udu_sdk.Editor"
+    "name": "defaultcompany.udu_sdk.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:dc9bec1236b96fd44bb13b0765e302d6"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
