@@ -104,7 +104,7 @@ To add a gesture you will use the `DTWUsage.AddGesture(string YourGestureName, L
 
 ### Additionnal notes
 
- * While training new gestures, press the `Reset Data` button when switching training different gestures to clean data sets.*
+ * While training new gestures, press the `Reset Data` button when training different gestures to clean data sets.
  * Creating two gestures that share similarities with each other might trick the aglorythm and give you unprecise results.
 
 ---
