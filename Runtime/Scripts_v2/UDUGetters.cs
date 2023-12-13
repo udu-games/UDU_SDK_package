@@ -6,6 +6,7 @@ public class UDUGetters : UDUAbstractBytesSetters
     private static long timestamp;
     private static bool isConnected;
     private static Vector3 acceleration;
+    private static Vector3 linearAcceleration;
     private static Vector3 angularVelocity;
     private static Quaternion orientation;
     private static float magneticHeading;
@@ -29,6 +30,7 @@ public class UDUGetters : UDUAbstractBytesSetters
     private void Update()
     {
         GetAccelerationFromBase();
+        GetLinearAccelerationFromBase();
         GetTimestampFromBase();
         GetAngularVelocityFromBase();
         GetOrientationFromBase();
@@ -56,6 +58,15 @@ public class UDUGetters : UDUAbstractBytesSetters
     {
         return acceleration;
     }
+    /// <summary>
+    /// Returns the UDU Console linear acceleration as a Vector3.
+    /// </summary>
+    /// <returns></returns>
+    public static Vector3 GetLinearAcceleration()
+    {
+        return linearAcceleration;
+    }
+
     /// <summary>
     /// Returns the UDU Console angular velocity as a Vector3.
     /// </summary>
@@ -117,6 +128,11 @@ public class UDUGetters : UDUAbstractBytesSetters
     private void GetAccelerationFromBase()
     {
         acceleration = base._acceleration;
+    }
+
+    private void GetLinearAccelerationFromBase()
+    {
+        linearAcceleration = base._linearAcceleration;
     }
 
     private void GetAngularVelocityFromBase()
