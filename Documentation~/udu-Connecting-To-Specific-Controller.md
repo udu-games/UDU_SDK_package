@@ -11,7 +11,19 @@
   
 ### Retrieving MAC adress of desired UDU controllers:
 
-* HERE PUT A LINK TO THE LISTING OF THE UDU CONTROLLER AND THEIR MAC ADRESS
+| Controller #  | MAC adress |
+| ------------- | ------------- |
+| 01  | 94:E6:86:C2:78:8E  |
+| 02  | C0:49:EF:23:E8:02  |
+| 03  | 90:38:0C:B0:7A:3A  |
+| 04  | 94:B5:55:A9:F2:EE  |
+| 05  | 94:B5:55:A9:EB:12  |
+| 06  | 94:B5:55:AA:12:E6  |
+| 07  | 94:B5:55:AA:0A:86  |
+| 08  | 94:B5:55:AA:04:CE  |
+| 09  | 94:E6:86:C0:69:6A  |
+| 10  | Out of the office  |
+| 11  | 94:B5:55:A9:FC:96  |
 
 ### Editing Console_Manager Prefab:
 
