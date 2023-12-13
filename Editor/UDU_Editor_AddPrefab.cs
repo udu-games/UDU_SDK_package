@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace UDU
 {
+#if UNITY_EDITOR
     public class InstantiatePrefabFromPath : MonoBehaviour
     {
-#if UNITY_EDITOR
         [MenuItem("UDU/Instantiate/Controller Connection Prefab")]
         private static void InstantiatePrefab()
         {
@@ -23,40 +23,59 @@ namespace UDU
 
             if (prefab != null)
             {
-                // Instantiate the prefab into the scene
-                GameObject instantiatedPrefab = Instantiate(prefab);
-
-                if (instantiatedPrefab != null)
-                {
-                    Debug.Log("Controller Connection Prefab instantiated successfully!");
-
-                    // Add components to the instantiated prefab if needed
-                    UDUConsoleConnection script = instantiatedPrefab.GetComponent<UDUConsoleConnection>();
-                    if (script == null)
-                    {
-                        script = instantiatedPrefab.AddComponent<UDUConsoleConnection>();
-                        instantiatedPrefab.AddComponent<UDUOutputsBytesSetter>();
-                        instantiatedPrefab.AddComponent<UDUGetters>();
-                        instantiatedPrefab.AddComponent<ConsoleManagerSingleton>();
-                        instantiatedPrefab.AddComponent<BluetoothPermissions>();
-                    }
-
-                    // Mark the prefab as dirty to ensure it gets saved
-                    EditorUtility.SetDirty(instantiatedPrefab);
-
-                    instantiatedPrefab.name = "Controller_Manager";
-
-                }
-                else
-                {
-                    Debug.LogError("Controller Connection Prefab Failed to instantiate.");
-                }
+                PrefabLoader(prefab);
             }
             else
             {
-                Debug.LogError("Controller Connection Prefab not found at path: " + prefabPath);
+                string assets_Editor_PrefabPath = "Assets/UDU_SDK/Prefabs/Controller_Manager.prefab";
+                GameObject assets_Editor_prefab = (GameObject)AssetDatabase.LoadAssetAtPath(assets_Editor_PrefabPath, typeof(GameObject));
+
+                if (prefab == null)
+                {
+                    PrefabLoader(assets_Editor_prefab);
+                }
+                else
+                {
+                    if (assets_Editor_prefab == null)
+                    {
+                        Debug.LogError("Controller Connection Prefab not found at path: " + assets_Editor_PrefabPath);
+                    }
+
+                    Debug.LogError("Controller Connection Prefab not found at path: " + prefabPath);
+                }
             }
         }
-#endif
+
+        private static void PrefabLoader(GameObject prefab)
+        {
+            // Instantiate the prefab into the scene
+            GameObject instantiatedPrefab = Instantiate(prefab);
+
+            if (instantiatedPrefab != null)
+            {
+                Debug.Log("Controller Connection Prefab instantiated successfully!");
+
+                // Add components to the instantiated prefab if needed
+                UDUConsoleConnection script = instantiatedPrefab.GetComponent<UDUConsoleConnection>();
+                if (script == null)
+                {
+                    script = instantiatedPrefab.AddComponent<UDUConsoleConnection>();
+                    instantiatedPrefab.AddComponent<UDUOutputsBytesSetter>();
+                    instantiatedPrefab.AddComponent<UDUGetters>();
+                    instantiatedPrefab.AddComponent<ConsoleManagerSingleton>();
+                    instantiatedPrefab.AddComponent<BluetoothPermissions>();
+                }
+
+                // Mark the prefab as dirty to ensure it gets saved
+                EditorUtility.SetDirty(instantiatedPrefab);
+
+                instantiatedPrefab.name = "Controller_Manager";
+            }
+            else
+            {
+                Debug.LogError("Controller Connection Prefab Failed to instantiate.");
+            }
+        }
     }
+#endif
 }
