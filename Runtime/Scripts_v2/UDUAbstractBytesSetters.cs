@@ -22,7 +22,6 @@ public abstract class UDUAbstractBytesSetters : MonoBehaviour
     protected long _timestamp;
     protected Quaternion _orientation = new Quaternion();
     protected Vector3 _acceleration = new Vector3();
-    protected Vector3 _linearAcceleration = new Vector3();
     protected Vector3 _angularVelocity = new Vector3();
     protected float _magneticHeading;
     protected Vector3 _trackpadCoordinates = new Vector3();
@@ -85,7 +84,6 @@ public abstract class UDUAbstractBytesSetters : MonoBehaviour
     {
         SetTimestamp();
         SetAcceleration();
-        SetLinearAcceleration();
         SetAngularVelocity();
         SetOrientation();
         SetMagneticHeading();
@@ -106,17 +104,6 @@ public abstract class UDUAbstractBytesSetters : MonoBehaviour
         _acceleration.x = System.BitConverter.ToInt16(axBytes, 0);
         _acceleration.y = System.BitConverter.ToInt16(ayBytes, 0);
         _acceleration.z = System.BitConverter.ToInt16(azBytes, 0);
-    }
-
-    protected void SetLinearAcceleration()
-    {
-        byte[] laxBytes = new byte[2] { motionStream[26], motionStream[27] };
-        byte[] layBytes = new byte[2] { motionStream[28], motionStream[29] };
-        byte[] lazBytes = new byte[2] { motionStream[30], motionStream[31] };
-
-        _linearAcceleration.x = System.BitConverter.ToInt16(laxBytes, 0);
-        _linearAcceleration.y = System.BitConverter.ToInt16(layBytes, 0);
-        _linearAcceleration.z = System.BitConverter.ToInt16(lazBytes, 0);
     }
 
     protected void SetAngularVelocity()
