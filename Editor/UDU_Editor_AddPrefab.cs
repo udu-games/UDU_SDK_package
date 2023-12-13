@@ -1,11 +1,11 @@
 using UnityEditor;
 using UnityEngine;
 
-#if UNITY_EDITOR
 namespace UDU
 {
     public class InstantiatePrefabFromPath : MonoBehaviour
     {
+#if UNITY_EDITOR
         [MenuItem("UDU/Instantiate/Controller Connection Prefab")]
         private static void InstantiatePrefab()
         {
@@ -23,22 +23,29 @@ namespace UDU
 
             if (prefab != null)
             {
-                GameObject instantiatedPrefab = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
+                // Instantiate the prefab into the scene
+                GameObject instantiatedPrefab = Instantiate(prefab);
 
                 if (instantiatedPrefab != null)
                 {
                     Debug.Log("Controller Connection Prefab instantiated successfully!");
 
-                    //TODO : Maybe need to add components to the prefab as a new ? 
+                    // Add components to the instantiated prefab if needed
                     UDUConsoleConnection script = instantiatedPrefab.GetComponent<UDUConsoleConnection>();
                     if (script == null)
                     {
-                        instantiatedPrefab.AddComponent<UDUConsoleConnection>();
+                        script = instantiatedPrefab.AddComponent<UDUConsoleConnection>();
                         instantiatedPrefab.AddComponent<UDUOutputsBytesSetter>();
                         instantiatedPrefab.AddComponent<UDUGetters>();
                         instantiatedPrefab.AddComponent<ConsoleManagerSingleton>();
                         instantiatedPrefab.AddComponent<BluetoothPermissions>();
                     }
+
+                    // Mark the prefab as dirty to ensure it gets saved
+                    EditorUtility.SetDirty(instantiatedPrefab);
+
+                    instantiatedPrefab.name = "Controller_Manager";
+
                 }
                 else
                 {
@@ -50,6 +57,6 @@ namespace UDU
                 Debug.LogError("Controller Connection Prefab not found at path: " + prefabPath);
             }
         }
+#endif
     }
 }
-#endif
