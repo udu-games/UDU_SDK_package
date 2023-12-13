@@ -1,1 +1,0 @@
-- Camera position may affect the behavior of the "aiming" make sure it's close to the pivot point, or make camera the pivot point
