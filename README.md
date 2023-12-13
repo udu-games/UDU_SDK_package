@@ -1,6 +1,6 @@
 # UDU_SDK_package
 
-Welcome to the UDU Console Software Development Kit (SDK)!
+Welcome to the UDU Controller Software Development Kit (SDK)!
 
 This document provides detailed informations on how to get started with the UDU SDK, including system requirements, installation instructions, and usage examples.
 
@@ -12,7 +12,7 @@ The following system requirements are necessary to use the current version of th
 
     **Note:** *You need to have [Android environment setup installed](https://docs.unity3d.com/Manual/android-sdksetup.html).* 
 
-    **Note:** *The udu console has also been tested on 2020 and 2022 versions.*
+    **Note:** *The udu controller has also been tested on 2020 and 2022 versions.*
 
 * **Android:** *Minimum API level ->* `Android 5.1 'Lollipop' - API level 22`
 
@@ -59,16 +59,16 @@ The following system requirements are necessary to use the current version of th
 
 1. Open the `Player Settings` by clicking on `Edit` > `Project Settings` > `Player`.
 2. Scroll down to the `Publishing Settings` section.
-3. Check the box that says `Custom Main Manifest`.
-4. Replace the newly created `AndroidManifest` in `Assets` > `Plugins` > `Android` by the premade one found at `Packages` > `UDU SDK` > `Plugins` > `Android`
-
-## 4. Setting up the Console Manager prefab 
-
-1. Open the starting scene of your project
-2. Navigate to `Packages` > `UDU SDK` > `UDU SDK` > `Prefab`
-3. Drag and drop the `Console_Manager` prefab into your scene Hierarchy.
+3. Check the box for the following option: `Custom Main Manifest`.
+4. Replace the newly created `AndroidManifest` located at `Assets` > `Plugins` > `Android` by the premade one found at `Packages` > `UDU SDK` > `Plugins` > `Android`
 
 ***Note:*** *You can customise the `AndroidManifest` according to your specific needs by editing the `<uses-permission>` lines. Add or remove permissions as required for your application.*
+
+## 4. Setting up the Controller Manager prefab 
+
+1. Open the starting scene of your project
+2. Navigate to the top menu `UDU` > `Instantiate` > `Controller Connection Prefab`
+
 
 ## 5. Building your app
 
@@ -76,6 +76,7 @@ You are now ready to build your app! Connect your phone to your computer, go to 
 Press `Build`, select where you want to save your `.apk` and you are good to go.
 
 ***Note:*** *In case you are getting an error when building about your device using ARM64, follow the instructions found below.*
+            *Do not forget to select the scenes you want to include in your build*
 
 ### Switch to ARM64 architecture suppport build
 
@@ -85,9 +86,9 @@ Press `Build`, select where you want to save your `.apk` and you are good to go.
 
 ## Guides & References
    
-* UDU console functionality and references: [UDU console reference guide](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-reference.md).
+* UDU controller functionality and references: [UDU controller reference guide](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-reference.md).
 
-* UDU console good practice and limitations: [UDU console outputs and limitation guide](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-output-GoodPractice.md).
+* UDU controller good practice and limitations: [UDU controller outputs and limitation guide](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-output-GoodPractice.md).
   
 * [Debugging your Android app using adb](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-debug-adb.md)
 
