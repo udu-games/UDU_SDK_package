@@ -75,4 +75,13 @@ public class EventsSystemHandler : Singleton<EventsSystemHandler>
             onConsoleConnect(isConnected);
         }
     }
+
+    public event Action<string> onGestureRecognized;
+    public void GestureRecognized(string recognizedGestureName)
+    {
+        if (onGestureRecognized != null)
+        {
+            onGestureRecognized(recognizedGestureName);
+        }
+    }
 }
