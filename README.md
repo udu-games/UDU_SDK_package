@@ -57,12 +57,13 @@ The following system requirements are necessary to use the current version of th
 
 ## 3. Setting up bluetooth permissions
 
-1. Open the `Player Settings` by clicking on `Edit` > `Project Settings` > `Player`.
-2. Scroll down to the `Publishing Settings` section.
-3. Check the box for the following option: `Custom Main Manifest`.
-4. Replace the newly created `AndroidManifest` located at `Assets` > `Plugins` > `Android` by the premade one found at `Packages` > `UDU SDK` > `Plugins` > `Android`
+1. Navigate to the top menu `UDU` > `Create Android Manifest`
 
-***Note:*** *You can customise the `AndroidManifest` according to your specific needs by editing the `<uses-permission>` lines. Add or remove permissions as required for your application.*
+***Note:*** 
+*This action creates a Plugin Folder housing the essential Android Manifest. The Manifest prompts users for permission to access specific data when launching the app for the first time, ensuring your app can utilize the desired functionalities.*
+
+***Note:*** 
+*You can customise the `AndroidManifest` according to your specific needs by editing the `<uses-permission>` lines. Add or remove permissions as required for your application.*
 
 ## 4. Setting up the Controller Manager prefab 
 
@@ -76,7 +77,6 @@ You are now ready to build your app! Connect your phone to your computer, go to 
 Press `Build`, select where you want to save your `.apk` and you are good to go.
 
 ***Note:*** *In case you are getting an error when building about your device using ARM64, follow the instructions found below.*
-            *Do not forget to select the scenes you want to include in your build*
 
 ### Switch to ARM64 architecture suppport build
 
