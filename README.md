@@ -44,7 +44,8 @@ The following system requirements are necessary to use the current version of th
 
   **Issue:** git(git bash) installation is installed on a different drive to the Unity Hub installation.
 
-  **Fix:** Install git on the same drive as the Unity Hub installation.
+
+  **Fix:** Install git on the same drive as the Unity Hub installation. Then close & re-open unity / unity hub.
 
 ### Method 2: Install from disk using Unity Package Manager.
 
