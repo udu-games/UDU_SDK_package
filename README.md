@@ -42,7 +42,7 @@ The following system requirements are necessary to use the current version of th
 #### Known issues
 * Import SDK from package manager using .git url. Error `no git executable was found`.
 
-  **Issue:** git installation is installed on a different drive to the Unity Hub installation.
+  **Issue:** git(git bash) installation is installed on a different drive to the Unity Hub installation.
 
   **Fix:** Install git on the same drive as the Unity Hub installation.
 
