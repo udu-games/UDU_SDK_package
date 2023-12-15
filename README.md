@@ -38,7 +38,6 @@ The following system requirements are necessary to use the current version of th
 4. Click on the `+` button in the top-left corner of the Package Manager window and select `Add package from git URL`.
 5. Paste the copied clone link (`https://github.com/udu-games/UDU_SDK.git`) into the input field and press `Add`.
 6. Unity will now fetch and integrate the UDU SDK package into your project.
-7. To bridge the connection to your UDU controller - Navigate to the top menu `UDU` > `Instantiate` > `Controller Connection Prefab`.
 
 #### Known issues
 * Import SDK from package manager using .git url. Error `no git executable was found`.
