@@ -3,7 +3,7 @@
   "version": "0.1.4",
   "displayName": "UDU SDK",
   "description": "UDU SDK package",
-  "unity": "2021.3",
+  "unity": "2019.3",
   "unityRelease": "0b5",
   "assetPath": "Assets/Plugins",
   "hideInEditor": false,
