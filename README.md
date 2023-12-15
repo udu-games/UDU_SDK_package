@@ -93,6 +93,8 @@ Press `Build`, select where you want to save your `.apk` and you are good to go.
 * [Debugging your Android app using adb](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-debug-adb.md)
 
 * [Connecting to your specific UDU controller](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-Connecting-To-Specific-Controller.md)
+  
+* [Using Dynamic Time Warping feature: create and detect gestures](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-DTW.md)
 
 ## Support
 
