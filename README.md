@@ -44,10 +44,16 @@ ____________________________
 #### Known issues
 * Import SDK from package manager using .git url. Error `no git executable was found`.
 
-  **Issue:** git(git bash) installation is installed on a different drive to the Unity Hub installation.
-
-
-  **Fix:** Install git on the same drive as the Unity Hub installation. Then close & re-open unity / unity hub.
+  **Issue:** git installation is installed on a different drive to the Unity Hub installation OR you do not have git installed on your system.
+  
+  **Fix#1:**
+  1. Close Unity & UnityHub.
+  2. Copy this directory path from your Github folder `C:\Users\`YourName`\AppData\Local\GitHubDesktop\app-3.3.6\resources\app\git\cmd`.
+  3. Open `Edit the system environment variables`.
+  4. click Path -> Edit.. -> New -> Paste the path here. -> apply and save.
+  5. This should resolve the Git.Exe issue.
+     
+  **Fix#2:** Install git on the same drive as the Unity Hub installation. Then close & re-open unity / unity hub.
 
 ### Method 2: Install from disk using Unity Package Manager.
 
