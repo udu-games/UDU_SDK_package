@@ -1,8 +1,8 @@
 # UDU_SDK_package
 
-Welcome to the UDU Console Software Development Kit (SDK)!
+Welcome to the UDU Controller Software Development Kit (SDK)!
 
-This document provides detailed information on how to get started with the UDU SDK, including system requirements, installation instructions, and usage examples.
+This document provides detailed informations on how to get started with the UDU SDK, including system requirements, installation instructions, and usage examples.
 
 ## System Requirements
 
@@ -10,9 +10,9 @@ The following system requirements are necessary to use the current version of th
 
 * **Unity:** *Our current build -> `2021.3.11f1`*
 
-    **Note:** *You need to have [Android environment setup installed](https://docs.unity3d.com/Manual/android-sdksetup.html). * 
+    **Note:** *You need to have [Android environment setup installed](https://docs.unity3d.com/Manual/android-sdksetup.html).* 
 
-    **Note:** *The udu console has also been tested on 2020 and 2022 versions.*
+    **Note:** *The udu controller has also been tested on 2020 and 2022 versions.*
 
 * **Android:** *Minimum API level ->* `Android 5.1 'Lollipop' - API level 22`
 
@@ -20,7 +20,7 @@ The following system requirements are necessary to use the current version of th
 
 ## Installation
 
-## 1. Switching the Android platform
+## 1. Switching to Android platform
 
 1. Open your desired Unity project
 2. Go to `File` > `Build Settings`
@@ -42,11 +42,12 @@ The following system requirements are necessary to use the current version of th
 #### Known issues
 * Import SDK from package manager using .git url. Error `no git executable was found`.
 
-  **Issue:** git installation is installed on a different drive to the Unity Hub installation.
+  **Issue:** git(git bash) installation is installed on a different drive to the Unity Hub installation.
 
-  **Fix:** Install git on the same drive as the Unity Hub installation.
 
-### Method 2: Install from disk  using the Package Manager.
+  **Fix:** Install git on the same drive as the Unity Hub installation. Then close & re-open unity / unity hub.
+
+### Method 2: Install from disk using Unity Package Manager.
 
 1. From the repository click on Code > Download ZIP.
 2. Download and extract the ZIP file to your pc.
@@ -57,18 +58,19 @@ The following system requirements are necessary to use the current version of th
 
 ## 3. Setting up bluetooth permissions
 
-1. Open the `Player Settings` by clicking on `Edit` > `Project Settings` > `Player`.
-2. Scroll down to the `Publishing Settings` section.
-3. Check the box that says `Custom Main Manifest`.
-4. Replace the newly created `AndroidManifest` in `Assets` > `Plugins` > `Android` by the premade one found at `Packages` > `UDU SDK` > `Plugins` > `Android`
+1. Navigate to the top menu `UDU` > `Create Android Manifest`
 
-## 4. Setting up the Console Manager prefab 
+***Note:*** 
+*This action creates a Plugin Folder housing the essential Android Manifest. The Manifest prompts users for permission to access specific data when launching the app for the first time, ensuring your app can utilize the desired functionalities.*
+
+***Note:*** 
+*You can customise the `AndroidManifest` according to your specific needs by editing the `<uses-permission>` lines. Add or remove permissions as required for your application.*
+
+## 4. Setting up the Controller Manager prefab 
 
 1. Open the starting scene of your project
-2. Navigate to `Packages` > `UDU SDK` > `UDU SDK` > `Prefab`
-3. Drag and drop the `Console_Manager` into your scene Hierarchy.
+2. Navigate to the top menu `UDU` > `Instantiate` > `Controller Connection Prefab`
 
-***Note:*** *You can customise the `AndroidManifest` according to your specific needs by editing the `<uses-permission>` lines. Add or remove permissions as required for your application.*
 
 ## 5. Building your app
 
@@ -85,13 +87,15 @@ Press `Build`, select where you want to save your `.apk` and you are good to go.
 
 ## Guides & References
    
-* UDU console functionality and references: [UDU console reference guide](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-reference.md).
+* UDU controller functionality and references: [UDU controller reference guide](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-reference.md).
 
-* UDU console good practice and limitations: [UDU console outputs and limitation guide](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-output-GoodPractice.md).
+* UDU controller good practice and limitations: [UDU controller outputs and limitation guide](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-output-GoodPractice.md).
   
 * [Debugging your Android app using adb](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-debug-adb.md)
 
 * [Connecting to your specific UDU controller](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-Connecting-To-Specific-Controller.md)
+  
+* [Using Dynamic Time Warping feature: create and detect gestures](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-DTW.md)
 
 ## Support
 
