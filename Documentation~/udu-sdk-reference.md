@@ -674,7 +674,7 @@ private void SetLEDConstantColor()
  <details>
 <summary>SetDisplayFile</summary>  
  
-### SetDisplayFile
+### SetImage
  
 #### Description
 
@@ -684,14 +684,14 @@ private void SetLEDConstantColor()
 
 #### Properties
  
-`SetDisplayFile(string filename) -> string`
+`SetImage(string filename) -> string`
 
 #### Example Usage
 
 ```csharp
-private void SetTheConsoleDisplay()
+private void SetTheConsoleDisplayImage()
 {
-    UDUOutputs.SetDisplayFile("intro.gif");
+    UDUOutputs.SetImage("intro.gif");
 }
 ```
  </details>
