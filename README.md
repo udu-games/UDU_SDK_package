@@ -2,7 +2,7 @@
 
 Welcome to the UDU Controller Software Development Kit (SDK)!
 
-This document provides detailed informations on how to get started with the UDU SDK, including system requirements, installation instructions, and usage examples.
+This document provides detailed informations on how to get started with the UDU SDK, including system requirements, installation instructions, guides, references and usage examples.
 
 ## System Requirements
 
