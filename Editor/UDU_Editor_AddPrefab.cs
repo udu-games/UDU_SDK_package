@@ -6,7 +6,7 @@ namespace UDU
 #if UNITY_EDITOR
     public class InstantiatePrefabFromPath : MonoBehaviour
     {
-        [MenuItem("UDU/Instantiate/Controller Connection Prefab")]
+        [MenuItem("UDU/Instantiate/Controller Connection")]
         private static void InstantiatePrefab()
         {
             // Check if an instance already exists in the scene
@@ -18,58 +18,60 @@ namespace UDU
                 return; // Don't instantiate a new one
             }
 
-            string prefabPath = "Packages/com.udu_company.udu_sdk/UDU_SDK/Prefabs/Controller_Manager.prefab";
-            GameObject prefab = (GameObject)AssetDatabase.LoadAssetAtPath(prefabPath, typeof(GameObject));
+            string dllPrefabPath = "Packages/com.udu_company.udu_sdk/UDU_SDK/Prefabs/Controller_Manager.prefab";
 
-            if (prefab != null)
+            if (dllPrefabPath != null)
             {
-                PrefabLoader(prefab);
+                PrefabLoader(dllPrefabPath);
             }
             else
             {
                 string assets_Editor_PrefabPath = "Assets/UDU_SDK/Prefabs/Controller_Manager.prefab";
-                GameObject assets_Editor_prefab = (GameObject)AssetDatabase.LoadAssetAtPath(assets_Editor_PrefabPath, typeof(GameObject));
 
-                if (prefab == null)
+                if (dllPrefabPath == null)
                 {
-                    PrefabLoader(assets_Editor_prefab);
+                    PrefabLoader(assets_Editor_PrefabPath);
                 }
                 else
                 {
-                    if (assets_Editor_prefab == null)
+                    if (assets_Editor_PrefabPath == null)
                     {
                         Debug.LogError("Controller Connection Prefab not found at path: " + assets_Editor_PrefabPath);
                     }
 
-                    Debug.LogError("Controller Connection Prefab not found at path: " + prefabPath);
+                    Debug.LogError("Controller Connection Prefab not found at path: " + dllPrefabPath);
                 }
             }
         }
 
-        private static void PrefabLoader(GameObject prefab)
+        private static void PrefabLoader(string _prefabPath)
         {
-            // Instantiate the prefab into the scene
-            GameObject instantiatedPrefab = Instantiate(prefab);
+            // Load the prefab from the project assets using its path
+            GameObject loadedPrefab = AssetDatabase.LoadAssetAtPath(_prefabPath, typeof(GameObject)) as GameObject;
 
-            if (instantiatedPrefab != null)
+            // Instantiate the prefab into the scene
+            GameObject _prefab = Instantiate(loadedPrefab);
+
+            if (_prefab != null)
             {
                 Debug.Log("Controller Connection Prefab instantiated successfully!");
 
                 // Add components to the instantiated prefab if needed
-                UDUConsoleConnection script = instantiatedPrefab.GetComponent<UDUConsoleConnection>();
+                UDUConsoleConnection script = _prefab.GetComponent<UDUConsoleConnection>();
                 if (script == null)
                 {
-                    script = instantiatedPrefab.AddComponent<UDUConsoleConnection>();
-                    instantiatedPrefab.AddComponent<UDUOutputsBytesSetter>();
-                    instantiatedPrefab.AddComponent<UDUGetters>();
-                    instantiatedPrefab.AddComponent<ConsoleManagerSingleton>();
-                    instantiatedPrefab.AddComponent<BluetoothPermissions>();
+                    _prefab.AddComponent<UDUConsoleConnection>();
+                    _prefab.AddComponent<UDUOutputsBytesSetter>();
+                    _prefab.AddComponent<UDUGetters>();
+                    _prefab.AddComponent<ConsoleManagerSingleton>();
+                    _prefab.AddComponent<BluetoothPermissions>();
                 }
 
-                // Mark the prefab as dirty to ensure it gets saved
-                EditorUtility.SetDirty(instantiatedPrefab);
+                // apply name change
+                _prefab.name = "Controller_Manager";
 
-                instantiatedPrefab.name = "Controller_Manager";
+                // Mark the prefab as dirty to ensure it gets saved
+                EditorUtility.SetDirty(_prefab);
             }
             else
             {
