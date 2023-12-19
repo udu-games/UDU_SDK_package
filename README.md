@@ -82,8 +82,8 @@ ____________________________
 ## 4. Setting up the Controller Manager prefab 
 
 1. Open the starting scene of your project
-2. Navigate to the top menu `UDU` > `Instantiate` > `Controller Connection Prefab`
-
+2. Navigate to the top menu `UDU` > `Instantiate` > `Controller Connection`
+3. Best practice -> drag and drop the newly instantiated GameObject into -> Assets/Prefabs folder to make it a prefab.
 
 ## 5. Building your app
 
