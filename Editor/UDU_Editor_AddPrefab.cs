@@ -10,7 +10,7 @@ namespace UDU
         private static void InstantiatePrefab()
         {
             // Check if an instance already exists in the scene
-            UDUConsoleConnection existingInstance = FindObjectOfType<UDUConsoleConnection>();
+            UDUControllerConnection existingInstance = FindObjectOfType<UDUControllerConnection>();
 
             if (existingInstance != null)
             {
@@ -57,13 +57,13 @@ namespace UDU
                 Debug.Log("Controller Connection Prefab instantiated successfully!");
 
                 // Add components to the instantiated prefab if needed
-                UDUConsoleConnection script = _prefab.GetComponent<UDUConsoleConnection>();
+                UDUControllerConnection script = _prefab.GetComponent<UDUControllerConnection>();
                 if (script == null)
                 {
-                    _prefab.AddComponent<UDUConsoleConnection>();
+                    _prefab.AddComponent<UDUControllerConnection>();
                     _prefab.AddComponent<UDUOutputsBytesSetter>();
                     _prefab.AddComponent<UDUGetters>();
-                    _prefab.AddComponent<ConsoleManagerSingleton>();
+                    _prefab.AddComponent<ControllerManagerSingleton>();
                     _prefab.AddComponent<BluetoothPermissions>();
                 }
 
