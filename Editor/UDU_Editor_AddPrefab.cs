@@ -1,5 +1,7 @@
+using System.IO;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UDU
 {
@@ -10,7 +12,7 @@ namespace UDU
         private static void InstantiatePrefab()
         {
             // Check if an instance already exists in the scene
-            UDUConsoleConnection existingInstance = FindObjectOfType<UDUConsoleConnection>();
+            UDUControllerConnection existingInstance = FindObjectOfType<UDUControllerConnection>();
 
             if (existingInstance != null)
             {
@@ -20,21 +22,23 @@ namespace UDU
 
             string dllPrefabPath = "Packages/com.udu_company.udu_sdk/UDU_SDK/Prefabs/Controller_Manager.prefab";
 
-            if (dllPrefabPath != null)
+            if (File.Exists(dllPrefabPath))
             {
+                Debug.Log("@Packages?");
                 PrefabLoader(dllPrefabPath);
             }
             else
             {
+                Debug.Log("@Assets?");
                 string assets_Editor_PrefabPath = "Assets/UDU_SDK/Prefabs/Controller_Manager.prefab";
 
-                if (dllPrefabPath == null)
+                if (!File.Exists(dllPrefabPath))
                 {
                     PrefabLoader(assets_Editor_PrefabPath);
                 }
                 else
                 {
-                    if (assets_Editor_PrefabPath == null)
+                    if (!File.Exists(assets_Editor_PrefabPath))
                     {
                         Debug.LogError("Controller Connection Prefab not found at path: " + assets_Editor_PrefabPath);
                     }
@@ -57,13 +61,13 @@ namespace UDU
                 Debug.Log("Controller Connection Prefab instantiated successfully!");
 
                 // Add components to the instantiated prefab if needed
-                UDUConsoleConnection script = _prefab.GetComponent<UDUConsoleConnection>();
+                UDUControllerConnection script = _prefab.GetComponent<UDUControllerConnection>();
                 if (script == null)
                 {
-                    _prefab.AddComponent<UDUConsoleConnection>();
+                    _prefab.AddComponent<UDUControllerConnection>();
                     _prefab.AddComponent<UDUOutputsBytesSetter>();
                     _prefab.AddComponent<UDUGetters>();
-                    _prefab.AddComponent<ConsoleManagerSingleton>();
+                    _prefab.AddComponent<ControllerManagerSingleton>();
                     _prefab.AddComponent<BluetoothPermissions>();
                 }
 
@@ -72,11 +76,41 @@ namespace UDU
 
                 // Mark the prefab as dirty to ensure it gets saved
                 EditorUtility.SetDirty(_prefab);
+
+                // Create reconnect button
+                if (_prefabPath.ToLower().Contains("packages"))
+                    CreateReconnectButton("Packages/com.udu_company.udu_sdk/UDU_SDK/Textures/ReconnectImage.png", _prefab, new Vector2(0, -600), new Vector2(500, 250));
+                else if (_prefabPath.ToLower().Contains("assets"))
+                    CreateReconnectButton("Assets/UDU_SDK/Textures/ReconnectImage.png", _prefab, new Vector2(0, -600), new Vector2(500, 250));
             }
             else
             {
                 Debug.LogError("Controller Connection Prefab Failed to instantiate.");
             }
+        }
+
+        private static Button CreateReconnectButton(string assetPath, GameObject parent, Vector2 position, Vector2 size)
+        {
+            // Create a new button GameObject
+            GameObject buttonGameObject = new GameObject("ReconnectButton");
+
+            buttonGameObject.transform.SetParent(parent.transform.GetChild(0).transform);
+            Button button = buttonGameObject.AddComponent<Button>();
+            RectTransform rectTransform = buttonGameObject.AddComponent<RectTransform>();
+
+            // Set the RectTransform properties
+            rectTransform.sizeDelta = size;
+            rectTransform.anchoredPosition = position;
+
+            // add image background and apply button image
+            buttonGameObject.AddComponent<Image>();
+            button.targetGraphic = button.GetComponent<Image>();
+
+            Sprite imageSprite = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
+            button.GetComponent<Image>().sprite = imageSprite;
+
+            button.gameObject.SetActive(false);
+            return button;
         }
     }
 #endif
