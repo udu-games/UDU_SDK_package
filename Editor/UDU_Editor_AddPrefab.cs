@@ -24,12 +24,10 @@ namespace UDU
 
             if (File.Exists(dllPrefabPath))
             {
-                Debug.Log("@Packages?");
                 PrefabLoader(dllPrefabPath);
             }
             else
             {
-                Debug.Log("@Assets?");
                 string assets_Editor_PrefabPath = "Assets/UDU_SDK/Prefabs/Controller_Manager.prefab";
 
                 if (!File.Exists(dllPrefabPath))
