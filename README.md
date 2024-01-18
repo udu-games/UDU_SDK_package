@@ -11,9 +11,8 @@ The following system requirements are necessary to use the current version of th
 
 * **Unity Versions:** 
 
-   * **Note:** *`2021.3.11f1` & higher is compatible with the UDU controller. This uses the API compatibility level `.NET standard 2.1`*.
-
-   * **Note:** *If you are using lower than -> `2021.3.11f1`, you will need to change the API compatibility level in Unity, `Player Settings-> API compatibility level -> .NET Framework`*.
+   * Unity version `2020.3.22f1` & higher is compatible with the UDU controller. This uses the latest API compatibility level.
+   * **Note:** Using Unity versions lower than `2020.3.22f1` will cause issues.
 
 * **Android:** *Minimum API level ->* `Android 5.1 'Lollipop' - API level 22`.
 
