@@ -1,6 +1,7 @@
 using System.IO;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UDU
@@ -48,6 +49,9 @@ namespace UDU
 
         private static void PrefabLoader(string _prefabPath)
         {
+            // Add an eventSystem component to the scene if there is none
+            CheckAndAddEventSystem();
+
             // Load the prefab from the project assets using its path
             GameObject loadedPrefab = AssetDatabase.LoadAssetAtPath(_prefabPath, typeof(GameObject)) as GameObject;
 
@@ -109,6 +113,19 @@ namespace UDU
 
             button.gameObject.SetActive(false);
             return button;
+        }
+
+        // check and add an eventSystem component to the scene if there is none
+        private static void CheckAndAddEventSystem()
+        {
+            EventSystem _eventSystem = FindObjectOfType<EventSystem>();
+            if(_eventSystem == null)
+            {
+                GameObject eventSystemObject = new GameObject("EventSystem");
+                eventSystemObject.AddComponent<EventSystem>();
+                eventSystemObject.AddComponent<StandaloneInputModule>();
+                Debug.Log("Created an EventSystem component and added it to the scene.");
+            }
         }
     }
 #endif
