@@ -23,7 +23,7 @@ public class TrackpadMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!UDUGetters.IsConsoleConnected()) return;
+        if (!UDUGetters.IsControllerConnected()) return;
 
         trackpadInput = UDUGetters.GetTrackpadCoordinates();
 

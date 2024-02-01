@@ -15,7 +15,7 @@ public class BallController : MonoBehaviour
     private void FixedUpdate()
     {
         // Checking that we are connected to the UDU console
-        if (!UDUGetters.IsConsoleConnected()) return;
+        if (!UDUGetters.IsControllerConnected()) return;
 
         if (UDUGetters.IsTrackpadPressed())
         {

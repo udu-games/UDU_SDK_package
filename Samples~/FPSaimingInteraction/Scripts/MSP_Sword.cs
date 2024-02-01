@@ -141,7 +141,7 @@ namespace MSP_Input.Demo
         // CORE -  Data manipulation method to map Unity coordinate system to UDU IMU coordinate system
         void HandleUDUConsoleInput()
         {
-            if (UDUGetters.IsConsoleConnected())
+            if (UDUGetters.IsControllerConnected())
             {
                 Quaternion gyroRotation = UDUGetters.GetOrientation();
                 // Apply the offset to the gyroscope rotation
@@ -202,7 +202,7 @@ namespace MSP_Input.Demo
         // Method responsible for realigning/resetting the heading, camera and cube
         public void ResetHeading()
         {
-            if (UDUGetters.IsConsoleConnected())
+            if (UDUGetters.IsControllerConnected())
             {
                 //OrientationSensors.SetHeading(0f);
                 SetCurrentHeadingQuaternion();
