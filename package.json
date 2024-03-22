@@ -44,6 +44,11 @@
       "displayName": "TrackpadRadar",
       "description": "Example of how the trackpad touch positioning works.",
       "path": "Samples~/TrackpadRadar"
+    },
+    {
+      "displayName": "CursorUI",
+      "description": "Showcase of moving cursor around to interact with UI buttons pressing trigger.",
+      "path": "Samples~/CursorUI"
     }
   ]
 }
