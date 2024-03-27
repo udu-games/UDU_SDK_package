@@ -42,7 +42,7 @@ The following system requirements are necessary to use the current version of th
 ---
 
 ## UDU scripting references
-* Documentation that contains details of the scripting API that UDU provdes:
+* Documentation containing specifics of the scripting API offered by UDU:
 
    * Refer to this document for assistance in establishing connections with one or multiple UDU controllers using their respective MAC addresses.
       * [UDU controller functionality and references](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-reference.md).
