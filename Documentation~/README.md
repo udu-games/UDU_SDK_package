@@ -42,12 +42,12 @@ The following system requirements are necessary to use the current version of th
 ---
 
 ## UDU scripting references
-* Documentation that contains details of the scripting API that UDU provdes:
+* Documentation containing specifics of the scripting API offered by UDU:
 
-   * Check out this doccument on how to use the UDU controllers data.
+   * Refer to this document for assistance in establishing connections with one or multiple UDU controllers using their respective MAC addresses.
       * [UDU controller functionality and references](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-reference.md).
 
-   * Check out this document on how to create and detect gestures using the UDU controller.
+   * Refer to this document for instructions on creating and detecting gestures using the UDU controller and the DTW sample scene.
       * [Using Dynamic Time Warping feature: create and detect gestures](https://github.com/udu-games/UDU_SDK_package/blob/development/Documentation~/udu-sdk-DTW.md).
 ---
 
