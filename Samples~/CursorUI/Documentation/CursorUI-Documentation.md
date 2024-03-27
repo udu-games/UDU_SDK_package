@@ -9,7 +9,7 @@
 
 * The cursor feature works as follow:
 	* Pressing the Squeeze button will make a cursor appear at the center of the screen.
-	* While pressing the Squeeze button you can now move the console around to move the cursor and use button component using the console Trigger.
+	* While pressing the Squeeze button you can now move the console around to move the cursor, and use the controller trigger button to interact with Button components.
 	* The cursor is limited to screen space
 	* Releasing Squeeze will make the cursor disappear
 	
