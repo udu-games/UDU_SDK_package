@@ -1,21 +1,18 @@
 # UDU_SDK_package
 
-Welcome to the UDU Controller Software Development Kit (SDK)!
-
-* This document provides detailed informations on how to get started with the UDU SDK, including system requirements, installation instructions, guides, references and usage examples.
----
+This document provides detailed informations on how to get started with the UDU SDK, including system requirements, installation instructions, guides, references and usage examples.
 
 ## System Requirements
 
-The following system requirements are necessary to use the current version of the SDK:
+The following system requirements are necessary to use the current version of the UDU SDK:
 
 * **Unity Versions:** 
 
-   * **Note:** *`2021.3.11f1` & higher is compatible with the UDU controller. This uses the API compatibility level `.NET standard 2.1`*.
+    **Note:** *`2021.3.11f1` & higher is compatible with the UDU controller. This uses the API compatibility level :`.NET standard 2.1`.*
 
-   * **Note:** *If you are using lower than -> `2021.3.11f1`, you will need to change the API compatibility level in Unity, `Player Settings-> API compatibility level -> .NET Framework`*.
+    **Note:** *If you are using lower than -> `2021.3.11f1`, you will need to change the API compatibility level in Unity, `Player Settings-> API compatibility level -> .NET 4.x`*
 
-* **Android:** *Minimum API level ->* `Android 5.1 'Lollipop' - API level 22`.
+* **Android:** *Minimum API level ->* `Android 5.1 'Lollipop' - API level 22`
 
    * **Note:** *You need to have [Android environment setup installed](https://docs.unity3d.com/Manual/android-sdksetup.html).* 
 
