@@ -1,24 +1,22 @@
 # UDU_SDK_package
 
-Welcome to the UDU Controller Software Development Kit (SDK)!
-
 This document provides detailed informations on how to get started with the UDU SDK, including system requirements, installation instructions, guides, references and usage examples.
 
 ## System Requirements
 
-The following system requirements are necessary to use the current version of the SDK:
+The following system requirements are necessary to use the current version of the UDU SDK:
 
 * **Unity Versions:** 
 
-    **Note:** *`2021.3.11f1` & higher is compatible with the UDU controller. This uses the API compatibility level `.NET standard 2.1`.*
+    **Note:** *`2021.3.11f1` & higher is compatible with the UDU controller. This uses the API compatibility level :`.NET standard 2.1`.*
 
-    **Note:** *If you are using lower than -> `2021.3.11f1`, you will need to change the API compatibility level in Unity, `Player Settings-> API compatibility level -> .NET Framework`*
+    **Note:** *If you are using lower than -> `2021.3.11f1`, you will need to change the API compatibility level in Unity, `Player Settings-> API compatibility level -> .NET 4.x`*
 
 * **Android:** *Minimum API level ->* `Android 5.1 'Lollipop' - API level 22`
 
     **Note:** *You need to have [Android environment setup installed](https://docs.unity3d.com/Manual/android-sdksetup.html).* 
 ____________________________
-* ***Other availability:*** *The SDK is currently available for Unity and Android, but will be expanded to support IOS soon and additional platforms in the future. Stay tuned for updates on our supported platforms.*
+* ***Other availability:*** *The SDK is currently available for Unity and Android, but will be expanded to support iOS soon and additional platforms in the future. Stay tuned for updates on our supported platforms.*
 
 ## Installation
 
@@ -44,27 +42,27 @@ ____________________________
 #### Known issues
 * Import SDK from package manager using .git url. Error `no git executable was found`.
 
-  **Issue:** git installation is installed on a different drive to the Unity Hub installation OR you do not have git installed on your system.
+  **Issue:** The Git installation is located on a separate drive from the Unity Hub installation, or Git is not installed on your system.
 
   **Fix #1:** *If you do NOT have git installed*
-  1. Close Unity & UnityHub.
-  2. Install git on the same drive as the UnityHub installation.
+  1. Close Unity & Unity Hub.
+  2. Install git on the same drive as the Unity Hub installation.
 
   **Fix #2:**
-  1. Close Unity & UnityHub.
+  1. Close Unity & Unity Hub.
   2. Copy this directory path from your Github folder `C:\Users\`YourName`\AppData\Local\GitHubDesktop\app-3.3.6\resources\app\git\cmd`.
   3. Open `Edit the system environment variables` from your computer.
   4. Click Path -> Edit.. -> New -> Paste the path here. -> apply and save.
  
   **Fix #3:**
-  1. Close Unity & UnityHub.
+  1. Close Unity & Unity Hub.
   2. Copy or move your git folder to the same drive as UnityHub.
 
 ### Method 2: Install from disk using Unity Package Manager.
 
 1. From the repository click on Code > Download ZIP.
 2. Download and extract the ZIP file to your pc.
-4. Open your Unity project and navigate the Unity Package Manager by clicking on `Window` > `Package Manager`.
+4. Open your Unity project and navigate to the Unity Package Manager by clicking on `Window` > `Package Manager`.
 5. Click on the `+` button in the top-left corner of the Package Manager window and select `Add package from disk`.
 6. Navigate to the extracted ZIP file and add the `package.json` from the root folder.
 7. Unity will now fetch and integrate the UDU SDK package into your project.
@@ -74,7 +72,7 @@ ____________________________
 1. Navigate to the top menu `UDU` > `Create Android Manifest`
 
 ***Note:*** 
-*This action creates a Plugin Folder housing the essential Android Manifest. The Manifest prompts users for permission to access specific data when launching the app for the first time, ensuring your app can utilize the desired functionalities.*
+*This action creates a Plugin folder housing the essential Android Manifest. The Manifest prompts users for permission to access specific data when launching the app for the first time, ensuring your app can utilize the desired functionalities.*
 
 ***Note:*** 
 *You can customise the `AndroidManifest` according to your specific needs by editing the `<uses-permission>` lines. Add or remove permissions as required for your application.*
